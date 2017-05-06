@@ -1,0 +1,46 @@
+$btn-font-size: $font-size-m;
+$btn-primary-bg: $primary-color;
+$btn-mini-font-size: $font-size-xs;
+
+.btn {
+  display: block;
+  padding: 0 1em;
+  width: 100%;
+  line-height: 2.5;
+  font-size: $btn-font-size;
+  text-align: center;
+  color: $color;
+  background-color: $bg;
+  border: 1px solid;
+  border-radius: .375rem;
+
+  &:active {
+    opacity: .6;
+  }
+
+  &[disabled] {
+    opacity: .4;
+    pointer-events: none;
+  }
+
+  & + & {
+    margin-top: 1rem;
+  }
+
+  &-primary {
+    color: #fff;
+    background-color: $btn-primary-bg;
+    border-color: darken($btn-primary-bg, 5%);
+  }
+
+  &-area {
+    margin: $cell-gap-h 1rem;
+  }
+
+  &-mini {
+    display: inline-block;
+    line-height: 2;
+    width: auto;
+    font-size: $btn-mini-font-size;
+  }
+}

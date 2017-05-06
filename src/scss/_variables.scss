@@ -1,0 +1,65 @@
+$bg: #fff !default;
+$bg-dark: #f5f5f9 !default;
+$color: #292b2c !default;
+$primary-color: #1AAD19 !default;
+
+$link-color: #0275d8 !default;
+$link-hover-color: darken($link-color, 15%) !default;
+
+// font-size
+//
+$font-size-xxxl:  2rem;     // 32px
+$font-size-xxl:   1.5rem;   // 24px
+$font-size-xl:    1.25rem;  // 20px
+$font-size-l:     1.125rem; // 18px
+$font-size-m:     1.0625rem;// 17px
+$font-size:       1rem;     // 16px
+$font-size-s:     .875rem;  // 14px
+$font-size-xs:    .75rem;   // 12px
+$font-size-xxs:   .625rem;  // 10px
+
+// media queries
+//
+$desktop-width: 1024px;
+// eg:
+// @include mobile { ... }
+@mixin mobile {
+  @media (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+// eg:
+// @include pc { ... }
+@mixin pc {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
+// app-header
+//
+$header-bg: #333 !default;
+$header-color: #fff !default;
+$header-active-color: darken($header-color, 5%) !default;
+$header-height: 3rem !default;
+
+// app-footer
+//
+$footer-bg: #fff !default;
+$footer-color: #888 !default;
+$footer-active-color: $link-color !default;
+$footer-border-color: #ddd !default;
+
+// badge
+//
+$badge-bg: #f74c31 !default;
+$badge-size: $font-size-xs !default;
+
+// cell
+//
+$cell-border-color: darken($bg, 10%);
+$cell-gap-h: 1rem;
+$cell-footer-color: lighten($color, 30%);
+$cell-placehoder-color: lighten($color, 60%);
+$cell-title-size: $font-size-s;
+$cell-title-color: lighten($color, 30%);

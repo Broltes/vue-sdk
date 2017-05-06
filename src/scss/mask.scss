@@ -1,0 +1,23 @@
+$mask-z-index: 1000;
+
+.mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: $mask-z-index;
+
+  // vue transition
+  transition: opacity .2s;
+  &-enter {
+    opacity: 0;
+  }
+  &-leave-active {
+    opacity: 0;
+  }
+
+  &-dark {
+    background-color: rgba(0,0,0,.6);
+  }
+}

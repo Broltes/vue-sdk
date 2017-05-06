@@ -1,0 +1,44 @@
+$toast-bg: rgba(0,0,0,.7);
+$toast-top: 8rem;
+$toast-font-size: $font-size-s;
+
+.toast {
+  position: absolute;
+  padding: .75rem 0;
+  top: $toast-top;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff;
+  background-color: $toast-bg;
+  border-radius: .375rem;
+
+  // vue transition
+  transition: opacity .2s;
+  &-enter {
+    opacity: 0;
+  }
+  &-leave-active {
+    opacity: 0;
+  }
+
+  > .icon {
+    margin: .5rem 2rem;
+    font-size: 3rem;
+  }
+
+  > .loading {
+    margin: 1rem 2.5rem;
+    font-size: 2rem;
+  }
+
+  &-message {
+    padding: 0 1.5rem;
+    font-size: $toast-font-size;
+
+    .icon + &,
+    .loading + & {
+      padding: 0 .5rem;
+    }
+  }
+}

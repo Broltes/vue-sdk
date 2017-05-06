@@ -1,0 +1,78 @@
+// https://v4-alpha.getbootstrap.com/content/reboot/
+// https://github.com/twbs/bootstrap/blob/v4-dev/scss/_reboot.scss
+
+//
+// Document
+//
+
+html {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;// Prevent adjustments of font size after orientation changes
+  -webkit-tap-highlight-color: rgba(0,0,0,0); // disable the default tap highlight on android
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family:
+    -apple-system,"PingFang SC","Helvetica Neue",
+    "Hiragino Sans GB","Helvetica","Microsoft YaHei",Arial,
+    sans-serif,"iconfont";
+  font-size: $font-size;
+  line-height: 1.5;
+  color: $color;
+  background-color: $bg;
+}
+
+table {
+  border-collapse: collapse; // Prevent double borders
+}
+
+th {
+  // Matches default `<td>` alignment
+  text-align: left;
+}
+
+
+img {
+  vertical-align: middle;
+}
+
+
+a {
+  color: $link-color;
+  text-decoration: none;
+
+  @include pc {
+    &:hover{
+      color: $link-hover-color;
+      text-decoration: underline;
+    }
+  }
+}
+
+
+input,
+button,
+select,
+optgroup,
+textarea {
+  margin: 0; // Remove the margin in Firefox and Safari
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+
+// only mobile
+//
+@include mobile {
+  :focus {
+    outline: 0;
+  }
+}

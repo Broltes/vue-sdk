@@ -1,0 +1,25 @@
+.badge {
+  &,
+  &-dot {
+    display: inline-block;
+    color: #fff;
+    background-color: $badge-bg;
+  }
+
+  & {
+    $size: 1.5em;
+
+    padding: 0 .3em;
+    font-size: $badge-size;
+    height: $size;
+    min-width: $size;
+    line-height: $size;
+    border-radius: $size/2;
+  }
+
+  &-dot {
+    padding: .25em;
+    border-radius: 100%;
+  }
+}
+

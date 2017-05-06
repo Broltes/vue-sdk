@@ -1,0 +1,140 @@
+.app-view {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
+  transition: transform .4s;
+  background-color: $bg-dark;
+
+  &-back-enter {
+    transform: translate3d(-20%, 0, 0);
+  }
+  &-back-leave-active {
+    z-index: 1;
+    transform: translate3d(99%, 0, 0);
+
+    .app-body {
+      border-left: 1px solid #ccc;
+    }
+  }
+
+  &-forward-enter {
+    transform: translate3d(80%, 0, 0);
+  }
+  &-forward-enter-active {
+    z-index: 1;
+
+    .app-body {
+      border-left: 1px solid #ccc;
+    }
+  }
+  &-forward-leave-active {
+    transform: translate3d(-20%, 0, 0);
+  }
+}
+
+.app-header {
+  display: flex;
+  padding: 0 .5rem;
+  height: $header-height;
+  white-space: nowrap;
+  align-items: center;
+  color: $header-color;
+  background-color: $header-bg;
+
+  &-left {
+    flex: 1;
+    white-space: nowrap;
+  }
+
+  &-right {
+    flex: 1;
+    justify-content: flex-end;
+    display: flex;// Enable flex-end for some devices.
+  }
+
+  &-title {
+    padding: 0 1rem;
+    font-size: $font-size-l;
+    flex-grow: 1;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &-left,
+  &-right {
+    > a {
+      font-size: $font-size-s;
+      color: inherit;
+
+      &:active {
+        opacity: .7;
+      }
+    }
+  }
+
+  &-left > a {
+    margin-right: .5rem;
+  }
+  &-right > a {
+    margin-left: .5rem;
+  }
+
+  .icon {
+    font-size: $font-size-xxl;
+  }
+}
+
+.app-body {
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;// enhance ios scrolling
+}
+
+.app-footer {
+  display: flex;
+  background-color: $footer-bg;
+  border-top: 1px solid $footer-border-color;
+
+  &-item {
+    display: block;
+    flex: 1;
+    padding-top: .4rem;
+    text-align: center;
+    color: $footer-color;
+
+    &__active {
+      color: $footer-active-color;
+    }
+  }
+
+  &-icon {
+    position: relative;
+  }
+
+  &-label {
+    margin: 0;
+    line-height: 1.6;
+    font-size: $font-size-xxs;
+  }
+
+  .badge,
+  .badge-dot {
+    position: absolute;
+    top: -10%;
+    right: 0;
+    transform: translateX(40%);
+  }
+
+  .icon {
+    font-size: $font-size-xxl;
+  }
+
+}
