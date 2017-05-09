@@ -23,8 +23,7 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: Object.assign({
       // vue pre-compile
-      'vue$': 'vue/dist/vue.esm.js',
-      '@': path.resolve('src')
+      'vue$': 'vue/dist/vue.esm.js'
     }, config.alias)
   },
 
@@ -83,6 +82,11 @@ module.exports = {
             }
           }
         ]
+      },
+
+      {
+        test: /\.(png|jpg)$/,
+        loader: 'file-loader'
       }
     ]
   }

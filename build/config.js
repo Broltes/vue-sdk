@@ -5,6 +5,7 @@ var ENV = process.env.NODE_ENV;
 var config = {
   entry: './demos/main',
   alias: {
+    '@': path.resolve('demos'),
     'vue-sdk': path.resolve('src')
   }
 };
