@@ -66,6 +66,7 @@
     resize: none;
     background-color: transparent;
     -webkit-appearance: none;
+    min-width: 0;
 
     &::-webkit-input-placeholder {
       color: $cell-placehoder-color;

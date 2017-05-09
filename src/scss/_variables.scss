@@ -63,3 +63,12 @@ $cell-footer-color: lighten($color, 30%);
 $cell-placehoder-color: lighten($color, 60%);
 $cell-title-size: $font-size-s;
 $cell-title-color: lighten($color, 30%);
+
+
+// dialog
+//
+$dialog-z-index: 2000;
+$dialog-bg: $bg;
+$dialog-border-color: darken($bg, 10%);
+$dialog-primary-color: $primary-color;
+

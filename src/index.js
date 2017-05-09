@@ -11,6 +11,7 @@ import AppHeader from './components/AppHeader';
 import AppFooter from './components/AppFooter';
 import Loading from './components/Loading';
 import Icon from './components/Icon';
+import Autosize from './components/Autosize';
 
 export default {
   install: function (Vue, options) {
@@ -19,6 +20,7 @@ export default {
     Vue.component('app-footer', AppFooter);
     Vue.component('loading', Loading);
     Vue.component('icon', Icon);
+    Vue.component('autosize', Autosize);
   }
 }
 

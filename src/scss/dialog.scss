@@ -1,8 +1,3 @@
-$dialog-bg: $bg;
-$dialog-border-color: darken($bg, 10%);
-$dialog-primary-color: $primary-color;
-$dialog-z-index: 2000;
-
 .dialog {
   position: fixed;
   top: 30%;
