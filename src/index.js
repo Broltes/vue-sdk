@@ -5,6 +5,7 @@ import http from './modules/http';
 
 import toast from './plugins/toast';
 import dialog from './plugins/dialog';
+import actionsheet from './plugins/actionsheet';
 
 import AppView from './components/AppView';
 import AppHeader from './components/AppHeader';
@@ -12,6 +13,7 @@ import AppFooter from './components/AppFooter';
 import Loading from './components/Loading';
 import Icon from './components/Icon';
 import Autosize from './components/Autosize';
+import Popup from './components/Popup';
 
 export default {
   install: function (Vue, options) {
@@ -21,6 +23,7 @@ export default {
     Vue.component('loading', Loading);
     Vue.component('icon', Icon);
     Vue.component('autosize', Autosize);
+    Vue.component('popup', Popup);
   }
 }
 
@@ -29,6 +32,7 @@ export {
 
   toast,
   dialog,
+  actionsheet,
 
   AppView,
   AppHeader

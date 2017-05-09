@@ -72,3 +72,11 @@ $dialog-bg: $bg;
 $dialog-border-color: darken($bg, 10%);
 $dialog-primary-color: $primary-color;
 
+// popup
+//
+$popup-z-index: 2000;
+
+// actionsheet
+//
+$actionsheet-bg: $bg-dark;
+$actionsheet-item-gap: .75rem;

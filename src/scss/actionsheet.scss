@@ -1,0 +1,56 @@
+.actionsheet {
+  text-align: center;
+  background-color: $actionsheet-bg;
+
+  &-message {
+    line-height: 3;
+    font-size: $font-size-s;
+    color: lighten($color, 30%);
+  }
+
+  &-btn,
+  &-cancel {
+    line-height: 3;
+    background-color: #fff;
+    border-bottom: 1px solid $actionsheet-bg;
+
+    &:active {
+      background-color: $actionsheet-bg;
+    }
+  }
+  &-cancel {
+    margin-top: .5rem;
+  }
+
+
+  &-menu {
+    display: flex;
+    padding: $actionsheet-item-gap;
+    border-top: 1px solid darken($actionsheet-bg, 5%);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    &-item {
+      margin-right: $actionsheet-item-gap;
+    }
+
+    &-icon {
+      padding: $actionsheet-item-gap;
+      background-color: #fff;
+      border-radius: .25rem;
+
+      > img,
+      > .icon {
+        width: 2rem;
+        height: 2rem;
+        color: lighten($color, 30%);
+      }
+    }
+
+    &-label {
+      margin-top: .5rem;
+      font-size: $font-size-xxs;
+      color: lighten($color, 30%);
+    }
+  }
+}
