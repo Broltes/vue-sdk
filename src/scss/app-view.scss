@@ -41,7 +41,7 @@
 
 .app-header {
   display: flex;
-  padding: 0 .5rem;
+  padding: 0 .75rem;
   height: $header-height;
   white-space: nowrap;
   align-items: center;
@@ -87,8 +87,14 @@
     margin-left: .5rem;
   }
 
-  .icon {
-    font-size: $font-size-xxl;
+  &-back {
+    content: "";
+    display: inline-block;
+    height: 1em;
+    width: 1em;
+    border-style: solid;
+    border-width: 0 0 0.125rem 0.125rem;
+    transform: rotateZ(45deg);
   }
 }
 

@@ -1,6 +1,7 @@
 <template>
   <div class="app-header">
     <div class="app-header-left">
+      <a class="app-header-back" v-if="withback !== undefined" @click="$router.go(-1)"></a>
       <slot name="left"></slot>
     </div>
 
@@ -13,3 +14,9 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  props: ['withback']
+}
+</script>
