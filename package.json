@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack-dev-server --hot --config build/webpack.dev.conf.js",
+    "eslint": "./node_modules/.bin/eslint . --ext .js,.vue;exit 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

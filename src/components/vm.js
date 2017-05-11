@@ -6,7 +6,6 @@ let vm = {
   scrollTopMap: {}
 };
 
-
 function fillState() {
   let currentState = history.state || {};
   history.replaceState(Object.assign(currentState, {

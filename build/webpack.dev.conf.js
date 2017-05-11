@@ -1,6 +1,5 @@
 var config = require('./config');
 var webpack = require('webpack');
-var path = require('path');
 
 var scssLoaders = [
   'vue-style-loader',

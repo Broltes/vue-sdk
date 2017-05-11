@@ -6,7 +6,7 @@ var config = {
   entry: './demos/main',
   alias: {
     '@': path.resolve('demos'),
-    'vue-sdk': path.resolve('src')
+    'vue-sdk': path.resolve('./')
   }
 };
 
