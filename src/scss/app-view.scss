@@ -106,7 +106,7 @@
   &-item {
     display: block;
     flex: 1;
-    padding-top: .4rem;
+    padding-top: .375rem;
     text-align: center;
     color: $footer-color;
 
@@ -121,7 +121,7 @@
 
   &-label {
     margin: 0;
-    line-height: 1.6;
+    padding-top: .125rem;
     font-size: $font-size-xxs;
   }
 
@@ -134,7 +134,7 @@
   }
 
   .icon {
-    font-size: $font-size-xxl;
+    font-size: $font-size-xxxl;
   }
 
 }
