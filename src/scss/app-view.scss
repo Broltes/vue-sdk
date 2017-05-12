@@ -78,6 +78,14 @@
         opacity: .7;
       }
     }
+
+    > .icon {
+      font-size: $font-size-xxl;
+
+      &:active {
+        opacity: .7;
+      }
+    }
   }
 
   &-left > a {
