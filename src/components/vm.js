@@ -5,12 +5,18 @@ let vm = {
   direction: 0,
   scrollTopMap: {}
 };
+const delayForRoute = 100;
 
 function fillState() {
+  // set timrstamp for current route after route updated
+  const delayForHistoryState = delayForRoute + 100;
   let currentState = history.state || {};
-  history.replaceState(Object.assign(currentState, {
-    timestamp: vm.timestamp
-  }), '', location.hash);
+
+  setTimeout(function() {
+    history.replaceState(Object.assign(currentState, {
+      timestamp: vm.timestamp
+    }), '', location.hash);
+  }, delayForHistoryState);
 }
 
 function handler() {
@@ -23,7 +29,7 @@ function handler() {
     // triggered by router-link, before hashchange
     timestamp = Date.now();
     // fill state after hashchanged
-    setTimeout(fillState, 99);
+    fillState();
   }
 
   vm.lastTimestamp = vm.timestamp;
@@ -44,7 +50,8 @@ function initForRouter(router) {
     // Triggering handler by router rather than onpopstate to solve:
     // router-link update $route before hashchange
     handler();
-    setTimeout(next);
+    // update route after vm updated
+    setTimeout(next, delayForRoute);
   });
   routerInited = 1;
 }
