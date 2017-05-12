@@ -1,18 +1,21 @@
 <template>
-  <textarea @input="resize" :rows="rows"></textarea>
+  <textarea @input="update" :rows="rows" :value="value"></textarea>
 </template>
 
 <script>
 export default {
   props: {
+    value: String,
     rows: { default: 1 }
   },
   methods: {
-    resize(e) {
+    update(e) {
+      //  resize
       const el = e.target;
-
       el.style.height = 'auto';
       el.style.height = Math.max(el.scrollHeight, el.offsetHeight) + 'px';
+
+      this.$emit('input', el.value);
     }
   }
 }
