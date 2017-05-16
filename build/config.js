@@ -14,10 +14,7 @@ if (ENV === 'development') {
   Object.assign(config, {
     port: 8080,
     sassLoaderOptions: {
-      data: '@import "_variables";',
-      includePaths: [
-        path.resolve('src/scss')
-      ]
+      data: '@import "~@/scss/_variables";'
     },
     htmls: [
       new HtmlWebpackPlugin({
