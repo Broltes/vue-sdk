@@ -8,7 +8,7 @@ function init() {
     el: document.createElement('div')
   });
 
-  document.body.appendChild($vm.$el)
+  document.body.appendChild($vm.$el);
 }
 
 /**
@@ -23,9 +23,14 @@ function init() {
 function actionsheet(options) {
   if (!$vm) init();
 
-  Object.assign($vm, options, {
+  Object.assign($vm, {
+    // reset to defaults for omitable params
+    message: '',
+    cancelText: undefined,
+    buttons: null,
+    menus: null
+  }, options, {
     show: 1,
-    cancelText: options.cancelText === undefined ? '取消' : options.cancelText,
     action(index, menuIndex) {
       $vm.show = 0;
 

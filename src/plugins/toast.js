@@ -9,7 +9,7 @@ function init() {
     el: document.createElement('div')
   });
 
-  document.body.appendChild($vm.$el)
+  document.body.appendChild($vm.$el);
 }
 
 /**
@@ -24,6 +24,7 @@ function show(options) {
   if (!$vm) init();
 
   Object.assign($vm, {
+    // defaults
     show: 1,
     message: '',
     icon: '',

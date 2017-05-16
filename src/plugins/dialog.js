@@ -8,7 +8,7 @@ function init() {
     el: document.createElement('div')
   });
 
-  document.body.appendChild($vm.$el)
+  document.body.appendChild($vm.$el);
 }
 
 /**
@@ -23,7 +23,7 @@ function dialog(options) {
   if (!$vm) init();
 
   Object.assign($vm, {
-    // Reset to allow title or content be omitted
+    // defaults
     title: '',
     content: ''
   }, options, {

@@ -51,6 +51,12 @@ $footer-color: #888 !default;
 $footer-active-color: $link-color !default;
 $footer-border-color: #ddd !default;
 
+// button
+//
+$btn-font-size: $font-size-m;
+$btn-primary-bg: $primary-color;
+$btn-mini-font-size: $font-size-xs;
+
 // badge
 //
 $badge-bg: #f74c31 !default;
@@ -65,6 +71,11 @@ $cell-placehoder-color: lighten($color, 60%);
 $cell-title-size: $font-size-s;
 $cell-title-color: lighten($color, 30%);
 
+// toast
+//
+$toast-bg: rgba(0,0,0,.7);
+$toast-top: 8rem;
+$toast-font-size: $font-size-s;
 
 // dialog
 //

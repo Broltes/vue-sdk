@@ -17,7 +17,7 @@
         </div>
       </div>
 
-      <div v-if="cancelText" @click="cancel" class="actionsheet-cancel">{{cancelText}}</div>
+      <div v-if="cancelText !== ''" @click="maskClick" class="actionsheet-cancel">{{cancelText || '取消'}}</div>
     </div>
   </popup>
 </template>
