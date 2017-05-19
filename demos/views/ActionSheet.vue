@@ -1,34 +1,16 @@
 <template>
   <app-view>
-    <div class="app-body">
-      <div class="actionsheet">
-
-      <div class="actionsheet-btn" v-for="(item, index) in buttons"
-        @click="action(index)">{{item}}</div>
-      </div>
-
-      <div class="actionsheet">
-        <div class="actionsheet-message">分享</div>
-
-        <div class="actionsheet-menu" v-for="(menu, menuIndex) in menus">
-          <div class="actionsheet-menu-item" v-for="(item, index) in menu"
-            @click="action(index, menuIndex)">
-            <div class="actionsheet-menu-icon">
-              <img v-if="item.img" :src="item.img">
-              <icon v-if="item.icon" :id="item.icon"></icon>
-            </div>
-            <div class="actionsheet-menu-label">{{item.label}}</div>
-          </div>
-        </div>
-
-        <div class="actionsheet-cancel">取消</div>
-      </div>
+    <app-header withback>actionsheet</app-header>
+    <div class="app-body demo-actionsheet">
+      <actionsheet v-bind="simple" :show="true" :action="simpleAction"></actionsheet>
+      <actionsheet v-bind="complex" :show="true" :action="complexAction"></actionsheet>
     </div>
   </app-view>
 </template>
 
 <script>
 import { actionsheet } from 'vue-sdk';
+import ActionSheet from 'vue-sdk/src/components/ActionSheet';
 import qq from '@/img/qq.png';
 import weibo from '@/img/weibo.png';
 import weixin from '@/img/weixin.png';
@@ -36,49 +18,67 @@ import weixin from '@/img/weixin.png';
 export default {
   data() {
     return {
-      imgs: {
-        qq, weibo, weixin
+      simple: {
+        buttons: ['拍照', '从相册选择'],
+        cancelText: ''
       },
 
-      buttons: ['拍照', '从相册选择'],
-
-      menus: [
-        [
-          { img: qq, label: 'QQ' },
-          { img: weixin, label: '微信好友' },
-          { img: weibo, label: '新浪微博' }
-        ],
-        [
-          { icon: 'home', label: '首页' },
-          { icon: 'message', label: '消息' },
-          { icon: 'me', label: '我' },
-          { icon: 'complaints', label: '举报' }
+      complex: {
+        message: '分享',
+        menus: [
+          [
+            { img: qq, label: 'QQ' },
+            { img: weixin, label: '微信好友' },
+            { img: weibo, label: '新浪微博' }
+          ],
+          [
+            { icon: 'home', label: '首页' },
+            { icon: 'message', label: '消息' },
+            { icon: 'me', label: '我' },
+            { icon: 'complaints', label: '举报' }
+          ]
         ]
-      ]
+      }
     }
   },
   methods: {
-    action(index, menuIndex) {
+    simpleAction() {
       actionsheet({
-        message: menuIndex >= 0 ? '分享' : '',
-        cancelText: menuIndex >= 0 ? '取消' : '',
-        buttons: menuIndex >= 0 ? null : this.buttons,
-        menus: menuIndex >= 0 ? this.menus : null,
+        ...this.simple,
+        action(index) {
+          console.log(index)
+        }
+      });
+    },
+    complexAction() {
+      actionsheet({
+        ...this.complex,
         action(index, menuIndex) {
           console.log(index, menuIndex)
         }
       });
     }
+  },
+  components: {
+    actionsheet: ActionSheet
   }
 }
 </script>
 
-<style lang="scss" scoped>
-.app-body {
+<style lang="scss">
+.demo-actionsheet {
   background-color: #666;
-}
 
-.actionsheet {
-  margin-top: 3em;
+  .mask {
+    display: none;
+  }
+
+  .popup {
+    position: static;
+  }
+
+  .actionsheet {
+    margin-top: 3em;
+  }
 }
 </style>

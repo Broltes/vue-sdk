@@ -1,5 +1,6 @@
 <template>
   <app-view>
+    <app-header withback>cell</app-header>
     <div class="app-body">
       <div class="cells-title">编辑信息</div>
         <div class="cells">

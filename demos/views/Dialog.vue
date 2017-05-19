@@ -1,23 +1,17 @@
 <template>
   <app-view>
-    <div class="app-body">
-      <div class="dialog">
-        <div class="dialog-hd">{{title}}</div>
-        <div class="dialog-bd">{{content}}</div>
-        <div class="dialog-ft">
-          <a class="dialog-btn" @click="test(1)">Alert</a>
-          <a class="dialog-btn" @click="test(2)">Confirm</a>
-        </div>
-      </div>
+    <app-header withback>dialog</app-header>
+    <div class="app-body demo-dialog">
+      <app-dialog v-bind="options" :show="true" :action="action"></app-dialog>
 
       <div class="cells">
         <div class="cell">
-          <div class="cell-hd">Title</div>
-          <input type="text" class="cell-input" v-model="title">
+          <div class="cell-label">Title</div>
+          <input type="text" class="cell-input" v-model="options.title">
         </div>
         <div class="cell">
-          <div class="cell-hd">Content</div>
-          <input type="text" class="cell-input" v-model="content">
+          <div class="cell-label">Content</div>
+          <input type="text" class="cell-input" v-model="options.content">
         </div>
       </div>
     </div>
@@ -26,15 +20,28 @@
 
 <script>
 import { dialog } from 'vue-sdk';
+import Dialog from 'vue-sdk/src/components/Dialog';
 
 export default {
   data() {
     return {
-      title: '弹窗标题',
-      content: '弹窗内容'
+      options: {
+        title: '弹窗标题',
+        content: '弹窗内容',
+        buttons: ['Alert', 'Confirm']
+      }
     }
   },
   methods: {
+    action(demoIndex) {
+      dialog({
+        ...this.options,
+        buttons: ['取消', '确定'].slice(-(demoIndex + 1)),
+        action(index) {
+          console.log(index, 'clicked');
+        }
+      });
+    },
     test(buttonsLength) {
       dialog({
         title: this.title,
@@ -45,13 +52,22 @@ export default {
         }
       });
     }
+  },
+  components: {
+    appDialog: Dialog
   }
 }
 </script>
 
-<style lang="scss" scoped>
-.dialog {
-  position: static;
-  margin: 2em auto;
+<style lang="scss">
+.demo-dialog {
+  .dialog {
+    position: static;
+    margin: 2em auto;
+  }
+
+  .mask {
+    display: none;
+  }
 }
 </style>

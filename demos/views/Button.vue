@@ -1,5 +1,6 @@
 <template>
   <app-view>
+    <app-header withback>btn</app-header>
     <div class="btn-area">
       <a class="btn btn-primary">确定</a>
       <a class="btn btn-primary" disabled>禁用</a>

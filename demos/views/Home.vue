@@ -1,6 +1,9 @@
 <template>
   <app-view>
-    <app-header>vue-sdk</app-header>
+    <app-header>
+      vue-sdk
+      <router-link :to="{ name: 'nest' }" slot="right">nest</router-link>
+    </app-header>
 
     <div class="app-body" v-show="footerIndex === 0">
       <div class="cells">
@@ -9,6 +12,7 @@
         <router-link to="/toast" class="cell cell-access"><div class="cell-bd">toast</div></router-link>
         <router-link to="/dialog" class="cell cell-access"><div class="cell-bd">dialog</div></router-link>
         <router-link to="/actionsheet" class="cell cell-access"><div class="cell-bd">actionsheet</div></router-link>
+        <router-link to="/picker" class="cell cell-access"><div class="cell-bd">picker</div></router-link>
       </div>
 
       <div class="x-content"></div>
