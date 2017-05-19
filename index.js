@@ -1,4 +1,4 @@
-import './src/scss/index.scss';
+import './src/scss/_.scss';
 import './src/svg'
 
 import http from './src/modules/http';
@@ -6,6 +6,8 @@ import http from './src/modules/http';
 import toast from './src/plugins/toast';
 import dialog from './src/plugins/dialog';
 import actionsheet from './src/plugins/actionsheet';
+import picker from './src/plugins/picker';
+import datePicker from './src/plugins/datePicker';
 
 import AppView from './src/components/AppView';
 import AppHeader from './src/components/AppHeader';
@@ -33,6 +35,8 @@ export {
   toast,
   dialog,
   actionsheet,
+  picker,
+  datePicker,
 
   AppView,
   AppHeader

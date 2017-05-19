@@ -1,0 +1,66 @@
+$picker-action-color: $primary-color;
+$picker-item-height: 2.25rem;
+$picker-bd-height: $picker-item-height * 7;// 7 rows
+$picker-indicator-top: (($picker-bd-height - $picker-item-height) / 2);
+
+.picker {
+  background-color: #fff;
+
+  &-hd {
+    display: flex;
+    padding: .625rem 1rem;
+    border-bottom: 1px solid darken(#fff, 5%);
+  }
+  &-action {
+    display: block;
+    flex: 1;
+    color: lighten($color, 30%);
+
+    // confirm
+    &:last-child {
+      color: $picker-action-color;
+      text-align: right;
+    }
+  }
+
+  &-bd {
+    display: flex;
+    height: $picker-bd-height;
+    overflow: hidden;
+  }
+  &-group {
+    flex: 1;
+    position: relative;
+    height: 100%;
+  }
+  &-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;// make mask over the translated picker-list
+    background-image: linear-gradient(rgba(255,255,255,.96), rgba(255,255,255,.6)),
+      linear-gradient(rgba(255,255,255,.6), rgba(255,255,255,.96));
+    background-position: top, bottom;
+    background-size: 100% $picker-indicator-top;// leave blank for the indicator
+    background-repeat: no-repeat;
+    transform: translateZ(0);// make mask active in holder transition
+  }
+  &-indicator {
+    position: absolute;
+    left: 0;
+    top: $picker-indicator-top;
+    width: 100%;
+    height: $picker-item-height;
+    border: solid darken(#fff, 5%);
+    border-width: 1px 0;
+  }
+  &-item {
+    line-height: $picker-item-height;
+    text-align: center;
+    color: #000;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}
