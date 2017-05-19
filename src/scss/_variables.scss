@@ -92,3 +92,11 @@ $popup-z-index: 2000;
 //
 $actionsheet-bg: $bg-dark;
 $actionsheet-item-gap: .75rem;
+
+// picker
+//
+$picker-action-color: $primary-color;
+$picker-item-height: 2.25rem;
+$picker-font-size: $font-size-l;
+$picker-bd-height: $picker-item-height * 7;// 7 rows
+$picker-indicator-top: (($picker-bd-height - $picker-item-height) / 2);
