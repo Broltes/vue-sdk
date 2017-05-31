@@ -1,15 +1,17 @@
 import Vue from 'vue';
 import ActionSheet from '../components/ActionSheet';
+import { single } from '../modules/utils';
 
-let $vm;
-
-function init() {
-  $vm = new (Vue.extend(ActionSheet))({
+let getVM = single(function() {
+  let $vm = new (Vue.extend(ActionSheet))({
     el: document.createElement('div')
   });
 
   document.body.appendChild($vm.$el);
-}
+
+  return $vm;
+});
+
 
 /**
  *
@@ -21,7 +23,7 @@ function init() {
  * @param {Function} options.action
  */
 function actionsheet(options) {
-  if (!$vm) init();
+  let $vm = getVM();
 
   Object.assign($vm, {
     // reset to defaults for omitable params

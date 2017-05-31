@@ -1,3 +1,5 @@
+import { single } from '../modules/utils';
+
 let vm = {
   lastTimestamp: 0,
   timestamp: 0,
@@ -41,10 +43,7 @@ function handler() {
   console.log(JSON.stringify(vm))
 }
 
-let routerInited;
-function initForRouter(router) {
-  if (routerInited) return;
-
+let initForRouter = single(function(router) {
   handler();
   router.beforeEach((to, from, next) => {
     // Triggering handler by router rather than onpopstate to solve:
@@ -53,8 +52,9 @@ function initForRouter(router) {
     // update route after vm updated
     setTimeout(next, delayForRoute);
   });
-  routerInited = 1;
-}
+
+  return 1;
+});
 
 export default vm;
 export {

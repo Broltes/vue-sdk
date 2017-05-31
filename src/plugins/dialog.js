@@ -1,15 +1,16 @@
 import Vue from 'vue';
 import Dialog from '../components/Dialog';
+import { single } from '../modules/utils';
 
-let $vm;
-
-function init() {
-  $vm = new (Vue.extend(Dialog))({
+let getVM = single(function() {
+  let $vm = new (Vue.extend(Dialog))({
     el: document.createElement('div')
   });
 
   document.body.appendChild($vm.$el);
-}
+
+  return $vm;
+});
 
 /**
  *
@@ -20,7 +21,7 @@ function init() {
  * @param {Function} options.action
  */
 function dialog(options) {
-  if (!$vm) init();
+  let $vm = getVM();
 
   Object.assign($vm, {
     // defaults

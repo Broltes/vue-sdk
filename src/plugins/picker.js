@@ -1,15 +1,16 @@
 import Vue from 'vue';
 import Picker from '../components/Picker';
+import { single } from '../modules/utils';
 
-let $vm;
-
-function init() {
-  $vm = new (Vue.extend(Picker))({
+let getVM = single(function() {
+  let $vm = new (Vue.extend(Picker))({
     el: document.createElement('div')
   });
 
   document.body.appendChild($vm.$el);
-}
+
+  return $vm;
+});
 
 /**
  *
@@ -18,7 +19,7 @@ function init() {
  * @param {Function} options.action
  */
 export default function(options) {
-  if (!$vm) init();
+  let $vm = getVM();
 
   Object.assign($vm, {
     defaultValue: null

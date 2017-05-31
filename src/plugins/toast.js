@@ -1,16 +1,18 @@
 import Vue from 'vue';
 import Toast from '../components/Toast';
+import { single } from '../modules/utils';
 
-let $vm;
 let tid;
-
-function init() {
-  $vm = new (Vue.extend(Toast))({
+let getVM = single(function() {
+  let $vm = new (Vue.extend(Toast))({
     el: document.createElement('div')
   });
 
   document.body.appendChild($vm.$el);
-}
+
+  return $vm;
+});
+
 
 /**
  *
@@ -21,7 +23,7 @@ function init() {
  * @param {Boolean} options.mask use mask to block touch, default false
  */
 function show(options) {
-  if (!$vm) init();
+  let $vm = getVM();
 
   Object.assign($vm, {
     // defaults
@@ -40,7 +42,7 @@ function show(options) {
 
 function hide() {
   clearTimeout(tid);
-  $vm.show = 0;
+  getVM().show = 0;
 }
 
 export default {
