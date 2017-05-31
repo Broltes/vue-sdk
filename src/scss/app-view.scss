@@ -8,34 +8,68 @@
   width: 100%;
   overflow: hidden;
   backface-visibility: hidden;
-  will-change: transform;
-  transition: transform .4s;
   background-color: $bg-dark;
 
-  &-back-enter {
-    transform: translate3d(-20%, 0, 0);
-  }
-  &-back-leave-active {
-    z-index: 1;
-    transform: translate3d(99%, 0, 0);
+  // route fade animation
+  &-fade {
+    transition-duration: .3s;
+    transition-property: transform, opacity;
 
-    .app-body {
-      border-left: 1px solid #ccc;
+    // forward
+    //
+    &-forward-enter {
+      opacity: 0;
+      transform: scale(.8);
+    }
+    &-forward-enter-active {
+      z-index: 1;
+    }
+    &-forward-leave-active {
+      opacity: 1;
+    }
+    // back
+    //
+    &-back-leave-active {
+      z-index: 1;
+      opacity: 0;
+      transform: scale(.8);
     }
   }
 
-  &-forward-enter {
-    transform: translate3d(80%, 0, 0);
-  }
-  &-forward-enter-active {
-    z-index: 1;
+  // route slide animation
+  //
+  &-slide {
+    will-change: transform;
+    transition: transform .4s;
 
-    .app-body {
-      border-left: 1px solid #ccc;
+    // back
+    //
+    &-back-enter {
+      transform: translate3d(-20%, 0, 0);
     }
-  }
-  &-forward-leave-active {
-    transform: translate3d(-20%, 0, 0);
+    &-back-leave-active {
+      z-index: 1;
+      transform: translate3d(99%, 0, 0);
+
+      .app-body {
+        border-left: 1px solid #ccc;
+      }
+    }
+    // forward
+    //
+    &-forward-enter {
+      transform: translate3d(80%, 0, 0);
+    }
+    &-forward-enter-active {
+      z-index: 1;
+
+      .app-body {
+        border-left: 1px solid #ccc;
+      }
+    }
+    &-forward-leave-active {
+      transform: translate3d(-20%, 0, 0);
+    }
   }
 }
 
@@ -47,6 +81,7 @@
   align-items: center;
   color: $header-color;
   background-color: $header-bg;
+  border-bottom: $header-border;
 
   &-left {
     flex: 1;
@@ -73,18 +108,17 @@
     > a {
       font-size: $font-size-s;
       color: inherit;
+    }
 
+    > a,
+    > .icon {
       &:active {
         opacity: .7;
       }
     }
 
-    > .icon {
+    .icon {
       font-size: $font-size-xxl;
-
-      &:active {
-        opacity: .7;
-      }
     }
   }
 
@@ -142,13 +176,12 @@
   .badge,
   .badge-dot {
     position: absolute;
-    top: -10%;
-    right: 0;
-    transform: translateX(40%);
+    top: 0;
+    left: 70%;
+    transform: translateY(-30%);
   }
 
   .icon {
     font-size: $font-size-xxxl;
   }
-
 }
