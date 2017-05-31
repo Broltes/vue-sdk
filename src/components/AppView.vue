@@ -1,6 +1,6 @@
 <template>
   <transition :name="transitionName">
-    <div class="app-view">
+    <div :class="`app-view app-view-${animation}`">
       <slot></slot>
     </div>
   </transition>
@@ -27,7 +27,7 @@ export default {
         '-1': 'back'
       }[this.direction];
 
-      return 'app-view-' + directionName;
+      return `app-view-${this.animation}-${directionName}`;
     }
   },
   created() {

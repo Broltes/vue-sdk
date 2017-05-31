@@ -5,7 +5,10 @@ let vm = {
   timestamp: 0,
 
   direction: 0,
-  scrollTopMap: {}
+  scrollTopMap: {},
+
+  // view animation name
+  animation: 'fade'
 };
 const delayForRoute = 100;
 
