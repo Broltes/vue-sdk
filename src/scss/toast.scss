@@ -3,6 +3,8 @@
   padding: .75rem 0;
   top: $toast-top;
   left: 50%;
+  max-width: 80%;
+  overflow: hidden;
   transform: translateX(-50%);
   text-align: center;
   color: #fff;

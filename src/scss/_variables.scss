@@ -1,7 +1,8 @@
 $bg: #fff !default;
 $bg-dark: #f5f5f9 !default;
 $color: #292b2c !default;
-$primary-color: #1AAD19 !default;
+$color-light: #888 !default;
+$color-primary: #1AAD19 !default;
 
 $link-color: #0275d8 !default;
 $link-hover-color: darken($link-color, 15%) !default;
@@ -39,8 +40,9 @@ $desktop-width: 1024px;
 
 // app-header
 //
-$header-bg: #333 !default;
+$header-bg: #444 !default;
 $header-color: #fff !default;
+$header-border: 1px solid darken($header-bg, 10%) !default;
 $header-active-color: darken($header-color, 5%) !default;
 $header-height: 3rem !default;
 
@@ -48,55 +50,60 @@ $header-height: 3rem !default;
 //
 $footer-bg: #fff !default;
 $footer-color: #888 !default;
-$footer-active-color: $link-color !default;
-$footer-border-color: #ddd !default;
+$footer-active-color: lighten($color-primary, 5%) !default;
+$footer-border-color: darken($footer-bg, 15%) !default;
 
 // button
 //
-$btn-font-size: $font-size-m;
-$btn-primary-bg: $primary-color;
-$btn-mini-font-size: $font-size-xs;
+$btn-font-size: $font-size-m !default;
+$btn-primary-bg: lighten($color-primary, 5%) !default;
+$btn-mini-font-size: $font-size-xs !default;
 
 // badge
 //
-$badge-bg: #f74c31 !default;
+$badge-bg: $color-primary !default;
 $badge-size: $font-size-xs !default;
 
 // cell
 //
-$cell-border-color: darken($bg, 10%);
-$cell-gap-h: 1rem;
-$cell-footer-color: lighten($color, 30%);
-$cell-placehoder-color: lighten($color, 60%);
-$cell-title-size: $font-size-s;
-$cell-title-color: lighten($color, 30%);
+$cells-gap: 1.5rem !default;
+$cells-title-gap: .25rem !default;
+$cells-title-size: $font-size-s !default;
+$cells-title-color: $color-light !default;
+
+$cell-border-color: darken($bg, 10%) !default;
+$cell-gap-v: .625rem !default;
+$cell-gap-h: 1rem !default;
+$cell-placehoder-color: lighten($color, 60%) !default;
+$cell-hd-color: darken($color-light, 15%) !default;
+$cell-ft-color: $color-light !default;
 
 // toast
 //
-$toast-bg: rgba(0,0,0,.7);
-$toast-top: 8rem;
-$toast-font-size: $font-size-s;
+$toast-bg: rgba(0,0,0,.7) !default;
+$toast-top: 8rem !default;
+$toast-font-size: $font-size-s !default;
 
 // dialog
 //
-$dialog-z-index: 2000;
-$dialog-bg: $bg;
-$dialog-border-color: darken($bg, 10%);
-$dialog-primary-color: $primary-color;
+$dialog-z-index: 2000 !default;
+$dialog-bg: $bg !default;
+$dialog-border-color: darken($bg, 10%) !default;
+$dialog-primary-color: $color-primary !default;
 
 // popup
 //
-$popup-z-index: 2000;
+$popup-z-index: 2000 !default;
 
 // actionsheet
 //
-$actionsheet-bg: $bg-dark;
-$actionsheet-item-gap: .75rem;
+$actionsheet-bg: $bg-dark !default;
+$actionsheet-item-gap: .75rem !default;
 
 // picker
 //
-$picker-action-color: $primary-color;
-$picker-item-height: 2.25rem;
-$picker-font-size: $font-size-l;
-$picker-bd-height: $picker-item-height * 7;// 7 rows
-$picker-indicator-top: (($picker-bd-height - $picker-item-height) / 2);
+$picker-action-color: $color-primary !default;
+$picker-item-height: 2.25rem !default;
+$picker-font-size: $font-size-l !default;
+$picker-bd-height: $picker-item-height * 7 !default;// 7 rows
+$picker-indicator-top: (($picker-bd-height - $picker-item-height) / 2) !default;
