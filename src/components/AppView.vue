@@ -20,7 +20,8 @@ export default {
   data() {
     return {
       vm,
-      timestamp: vm.timestamp
+      timestamp: vm.timestamp,
+      scrollTop: 0
     };
   },
   computed: {
@@ -47,11 +48,8 @@ export default {
       } else if (timestamp === this.timestamp) {
         console.log(vm.direction, 'enter', this.timestamp, this);
 
-        let $body = getVisibleBody(this.$el);
-        let scrollTop = vm.scrollTopMap[this.timestamp];
-
-        // Restore the scrollbar progress
-        if (scrollTop && $body) $body.scrollTop = scrollTop;
+        // scrollTop must apply in activated hook for ios
+        this.scrollTop = vm.scrollTopMap[this.timestamp];
       } else {
         console.log(vm.direction, 'leave', this.timestamp, this);
 
@@ -63,6 +61,12 @@ export default {
   },
   created() {
     initForRouter(this.$router);
+  },
+  activated() {
+    let $body = getVisibleBody(this.$el);
+
+    // Restore the scrollbar progress
+    if ($body && this.scrollTop) $body.scrollTop = this.scrollTop;
   }
 }
 </script>
