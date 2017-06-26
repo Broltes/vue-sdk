@@ -13,7 +13,6 @@ let getVM = single(function() {
   return $vm;
 });
 
-
 /**
  *
  * @param {Object} options
@@ -24,6 +23,8 @@ let getVM = single(function() {
  */
 function show(options) {
   let $vm = getVM();
+
+  if (typeof options === 'string') options = { message: options };
 
   Object.assign($vm, {
     // defaults
