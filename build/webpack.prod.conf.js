@@ -1,20 +1,24 @@
-var config = require('./config')('development');
+var config = require('./config')('production');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-var scssLoaders = [
-  'vue-style-loader',
-  'css-loader',
-  'postcss-loader',
-  {
-    loader: 'sass-loader',
-    options: config.sassLoaderOptions
-  }
-];
+var scssLoaders = ExtractTextPlugin.extract({
+  use: [
+    'css-loader',
+    'postcss-loader',
+    {
+      loader: 'sass-loader',
+      options: config.sassLoaderOptions
+    }
+  ],
+  fallback: 'vue-style-loader'
+});
 
 module.exports = {
   entry: config.entry,
 
   output: {
+    path: config.outputPath,
     filename: '[name].js' // for multi chunks
   },
 
@@ -27,17 +31,15 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.NamedModulesPlugin()
+    new ExtractTextPlugin('[name].css?[contenthash]'),
+    new webpack.optimize.CommonsChunkPlugin({ name: 'vendor' }),
+    // extract webpack runtime and module manifest to its own file in order to
+    // prevent vendor hash from being updated whenever app bundle is updated
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'manifest',
+      chunks: ['vendor']
+    })
   ].concat(config.htmls),
-
-  devServer: {
-    noInfo: true,
-    host: '0.0.0.0',
-    port: config.port,
-    disableHostCheck: true
-  },
-  devtool: '#cheap-module-eval-source-map',
 
   module: {
     rules: [
@@ -85,7 +87,10 @@ module.exports = {
 
       {
         test: /\.(png|jpg)$/,
-        loader: 'file-loader'
+        use: [
+          'url-loader?limit=10000&name=[path][name].[ext]?[hash]',
+          'image-webpack-loader'
+        ]
       }
     ]
   }

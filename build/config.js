@@ -1,33 +1,45 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
-var ENV = process.env.NODE_ENV;
 
 var config = {
+  entry: {
+    app: [
+      './demos/main'
+    ],
+    vendor: [
+      'vue',
+      'vue-router'
+    ]
+  },
   alias: {
     '@': path.resolve('demos'),
     'vue-sdk': path.resolve('./')
-  }
+  },
+  sassLoaderOptions: {
+    data: '@import "~@/scss/_variables";'
+  },
+  htmls: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+      inject: true
+    })
+  ],
+  // for production
+  outputPath: path.resolve('../github/github.io/vue-sdk')
 };
 
-if (ENV === 'development') {
-  Object.assign(config, {
-    entry: [
-      // polyfill for HMR on old devices.
-      'babel-polyfill',
-      './demos/main'
-    ],
-    port: 8080,
-    sassLoaderOptions: {
-      data: '@import "~@/scss/_variables";'
-    },
-    htmls: [
-      new HtmlWebpackPlugin({
-        filename: 'index.html',
-        template: 'index.html',
-        inject: true
-      })
-    ]
-  })
-}
+module.exports = function(ENV) {
+  if (ENV === 'development') {
+    Object.assign(config, {
+      entry: [
+        // polyfill for HMR on old devices.
+        'babel-polyfill',
+        './demos/main'
+      ],
+      port: 8080
+    });
+  }
 
-module.exports = config;
+  return config;
+};
