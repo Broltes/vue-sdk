@@ -13,7 +13,9 @@ const router = new Router({
 });
 
 Vue.use(Router);
-Vue.use(sdk);
+Vue.use(sdk, {
+  animation: 'slide'
+});
 
 /* eslint-disable no-new */
 new Vue({

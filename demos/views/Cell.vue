@@ -19,7 +19,22 @@
             <input type="text" class="cell-input" placeholder="0.00">
             <div class="cell-ft">元</div>
           </div>
+        </div>
 
+        <div class="cells-title">请填写以下信息</div>
+        <div class="cells">
+          <div class="cell">
+            <div class="cell-label">比较长label测试</div>
+            <input type="text" class="cell-input" placeholder="请输入">
+          </div>
+
+          <div class="cell">
+            <div class="cell-label">文本域</div>
+            <autosize class="cell-input" placeholder="请输入文本"></autosize>
+          </div>
+        </div>
+
+        <div class="cells">
           <div class="cell cell-access">
             <div class="cell-label">请选择</div>
             <select class="cell-input">
@@ -32,17 +47,8 @@
             <div class="cell-label">匿名购买</div>
             <input type="checkbox">
           </label>
-
-          <div class="cell">
-            <div class="cell-label">比较长label测试</div>
-            <input type="text" class="cell-input" placeholder="请输入">
-          </div>
-
-          <div class="cell">
-            <div class="cell-label">文本域</div>
-            <autosize class="cell-input" placeholder="请输入文本"></autosize>
-          </div>
         </div>
+        <div class="cells-tip">请选择以上选项</div>
 
         <div class="cells-title">文本域</div>
         <div class="cells">
@@ -50,7 +56,8 @@
             <autosize class="cell-input" placeholder="请输入" rows="3"></autosize>
           </div>
         </div>
-        <div class="cells-tip">请放心填写</div>
+
+        <div class="cells-blank"></div>
     </div>
   </app-view>
 </template>

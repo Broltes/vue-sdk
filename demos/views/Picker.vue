@@ -17,7 +17,7 @@ export default {
       single: {
         groups: [
           [2015, 2016],
-          function(values) {
+          function([year]) {
             let months = Array.apply(null, Array(12)).map(function(item, index) {
               return {
                 label: (index + 1) + '月',
@@ -25,15 +25,25 @@ export default {
               }
             });
 
-            switch (values[0]) {
+            switch (year) {
               case 2015:
                 return months.slice(4 - 1);
               default:
                 return months;
             }
           },
-          function() {
-            return []
+          function([year]) {
+            switch (year) {
+              case 2015:
+                return Array.apply(null, Array(31)).map(function(item, index) {
+                  return {
+                    label: (index + 1) + '日',
+                    value: index + 1
+                  }
+                });
+              default:
+                return [];
+            }
           }
         ],
         action: value => {
