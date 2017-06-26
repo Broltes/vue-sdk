@@ -1,6 +1,6 @@
 <template>
   <transition :name="transitionName">
-    <div :class="`app-view app-view-${animation}`">
+    <div :class="`app-view app-view-${vm.animation}`">
       <slot></slot>
     </div>
   </transition>
@@ -18,43 +18,51 @@ function getVisibleBody($view) {
 
 export default {
   data() {
-    return vm;
+    return {
+      vm,
+      timestamp: vm.timestamp
+    };
   },
   computed: {
     transitionName() {
       let directionName = {
         '1': 'forward',
         '-1': 'back'
-      }[this.direction];
+      }[vm.direction];
 
-      return `app-view-${this.animation}-${directionName}`;
+      return `app-view-${vm.animation}-${directionName}`;
+    }
+  },
+  watch: {
+    'vm.timestamp': function(timestamp) {
+      if (timestamp < this.timestamp) {
+        console.log(vm.direction, 'destroy', this.timestamp, this);
+
+        // Disable keep-alived current view when closed by back direction.
+        // Destroy the deprecated view after the transition finished.
+        // Can't in transition js hook, as there's no transition if `history.go(-2)`.
+        setTimeout(() => {
+          this.$parent.$destroy();
+        }, 1e3);
+      } else if (timestamp === this.timestamp) {
+        console.log(vm.direction, 'enter', this.timestamp, this);
+
+        let $body = getVisibleBody(this.$el);
+        let scrollTop = vm.scrollTopMap[this.timestamp];
+
+        // Restore the scrollbar progress
+        if (scrollTop && $body) $body.scrollTop = scrollTop;
+      } else {
+        console.log(vm.direction, 'leave', this.timestamp, this);
+
+        // Save the scrollbar progress for current view
+        let $body = getVisibleBody(this.$el);
+        if ($body) vm.scrollTopMap[this.timestamp] = $body.scrollTop;
+      }
     }
   },
   created() {
     initForRouter(this.$router);
-  },
-  activated() {
-    console.log(vm.direction, 'enter', vm.timestamp, this)
-
-    let scrollTop = vm.scrollTopMap[vm.timestamp];
-    let $body = getVisibleBody(this.$el);
-
-    // Restore the scrollbar progress
-    if (scrollTop && $body) $body.scrollTop = scrollTop;
-  },
-  deactivated() {
-    console.log(vm.direction, 'leave', vm.lastTimestamp, this);
-
-    if (vm.direction === -1) {
-      // Disable keep-alived current view when closed by back direction
-      this.$parent.$destroy();
-      delete vm.scrollTopMap[vm.lastTimestamp];
-      return;
-    }
-
-    // Save the scrollbar progress for current view
-    let $body = getVisibleBody(this.$el);
-    if ($body) vm.scrollTopMap[vm.lastTimestamp] = $body.scrollTop;
   }
 }
 </script>

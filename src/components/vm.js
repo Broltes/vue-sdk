@@ -25,7 +25,7 @@ function fillState() {
 }
 
 function handler() {
-  console.log(JSON.stringify(vm), location.hash)
+  console.log(JSON.stringify(vm), location.hash);
 
   let currentState = history.state || {};
   let { timestamp } = currentState;
@@ -46,8 +46,8 @@ function handler() {
   console.log(JSON.stringify(vm))
 }
 
+handler();
 let initForRouter = single(function(router) {
-  handler();
   router.beforeEach((to, from, next) => {
     // Triggering handler by router rather than onpopstate to solve:
     // router-link update $route before hashchange
