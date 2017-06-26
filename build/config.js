@@ -20,8 +20,9 @@ var config = {
   },
   htmls: [
     new HtmlWebpackPlugin({
+      title: 'vue-sdk',
       filename: 'index.html',
-      template: 'index.html',
+      template: './build/index.ejs',
       inject: true
     })
   ],
