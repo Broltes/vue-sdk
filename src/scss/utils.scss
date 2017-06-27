@@ -1,0 +1,9 @@
+.nodata {
+  padding: 1rem;
+  text-align: center;
+  color: $cells-title-color;
+
+  &-l {
+    padding: 2rem 1rem;
+  }
+}
