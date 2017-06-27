@@ -24,8 +24,17 @@
     margin: $cells-title-gap $cell-gap-h 0;
   }
 
-  &-blank {
-    padding: 1rem;
+  &-nodata {
+    &,
+    &-l {
+      padding: 1rem;
+      text-align: center;
+      color: $cells-title-color;
+    }
+
+    &-l {
+      padding: 2rem 1rem;
+    }
   }
 }
 
@@ -80,6 +89,11 @@
     &::-webkit-input-placeholder {
       color: $cell-placehoder-color;
     }
+  }
+  &-bd-tip {
+    margin-top: .25rem;
+    font-size: $font-size-s;
+    color: $cells-title-color;
   }
 
   &-access {

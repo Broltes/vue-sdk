@@ -57,7 +57,7 @@
           </div>
         </div>
 
-        <div class="cells-blank"></div>
+        <div class="cells-nodata"></div>
     </div>
   </app-view>
 </template>

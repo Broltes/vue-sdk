@@ -4,7 +4,7 @@ $color: #292b2c !default;
 $color-light: #888 !default;
 $color-primary: #1AAD19 !default;
 
-$link-color: #0275d8 !default;
+$link-color: #586C94 !default;
 $link-hover-color: darken($link-color, 15%) !default;
 
 // font-size
@@ -61,13 +61,13 @@ $btn-mini-font-size: $font-size-xs !default;
 
 // badge
 //
-$badge-bg: $color-primary !default;
+$badge-bg: #F43530 !default;
 $badge-size: $font-size-xs !default;
 
 // cell
 //
 $cells-gap: 1.5rem !default;
-$cells-title-gap: .25rem !default;
+$cells-title-gap: .375rem !default;
 $cells-title-size: $font-size-s !default;
 $cells-title-color: $color-light !default;
 
