@@ -57,7 +57,7 @@
           </div>
         </div>
 
-        <div class="cells-nodata"></div>
+        <div class="nodata nodata-l"></div>
     </div>
   </app-view>
 </template>

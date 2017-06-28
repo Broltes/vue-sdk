@@ -14,7 +14,7 @@ let getVM = single(function() {
 });
 
 /**
- *
+ * toast.show
  * @param {Object} options
  * @param {String} options.message
  * @param {String} options.icon loading | success | warn, default to no
