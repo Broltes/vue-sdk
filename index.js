@@ -17,6 +17,7 @@ import Loading from './src/components/Loading';
 import Icon from './src/components/Icon';
 import Autosize from './src/components/Autosize';
 import Popup from './src/components/Popup';
+import Crop from './src/components/Crop';
 
 export default {
   install: function (Vue, options) {
@@ -29,6 +30,7 @@ export default {
     Vue.component('icon', Icon);
     Vue.component('autosize', Autosize);
     Vue.component('popup', Popup);
+    Vue.component('crop', Crop);
   }
 }
 
