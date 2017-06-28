@@ -5,6 +5,8 @@ import Toast from './Toast';
 import Dialog from './Dialog';
 import ActionSheet from './ActionSheet';
 import Picker from './Picker';
+import Crop from './Crop';
+import Avatar from './Crop/Avatar';
 
 import Nest from './Nest';
 import NestHolder from './Nest/Holder';
@@ -18,6 +20,8 @@ export default [
   { path: '/dialog', component: Dialog },
   { path: '/actionsheet', component: ActionSheet },
   { path: '/picker', component: Picker },
+  { path: '/avatar', component: Avatar },
+  { path: '/crop', component: Crop },
 
   {
     path: '/nest',

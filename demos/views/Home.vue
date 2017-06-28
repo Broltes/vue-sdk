@@ -13,6 +13,7 @@
         <router-link to="/dialog" class="cell cell-access"><div class="cell-bd">dialog</div></router-link>
         <router-link to="/actionsheet" class="cell cell-access"><div class="cell-bd">actionsheet</div></router-link>
         <router-link to="/picker" class="cell cell-access"><div class="cell-bd">picker</div></router-link>
+        <router-link to="/avatar" class="cell cell-access"><div class="cell-bd">crop</div></router-link>
       </div>
 
       <div class="x-content"></div>
