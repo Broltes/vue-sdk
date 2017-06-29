@@ -1,76 +1,7 @@
-.app-view {
+.router-view {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  backface-visibility: hidden;
   background-color: $bg-dark;
-
-  // route fade animation
-  &-fade {
-    transition-duration: .3s;
-    transition-property: transform, opacity;
-
-    // forward
-    //
-    &-forward-enter {
-      opacity: 0;
-      transform: scale(.8);
-    }
-    &-forward-enter-active {
-      z-index: 1;
-    }
-    &-forward-leave-active {
-      opacity: 1;
-    }
-    // back
-    //
-    &-back-leave-active {
-      z-index: 1;
-      opacity: 0;
-      transform: scale(.8);
-    }
-  }
-
-  // route slide animation
-  //
-  &-slide {
-    will-change: transform;
-    transition: transform .4s;
-
-    // back
-    //
-    &-back-enter {
-      transform: translate3d(-20%, 0, 0);
-    }
-    &-back-leave-active {
-      z-index: 1;
-      transform: translate3d(99%, 0, 0);
-
-      .app-body {
-        border-left: 1px solid #ccc;
-      }
-    }
-    // forward
-    //
-    &-forward-enter {
-      transform: translate3d(90%, 0, 0);
-    }
-    &-forward-enter-active {
-      z-index: 1;
-
-      .app-body {
-        border-left: 1px solid #ccc;
-      }
-    }
-    &-forward-leave-active {
-      transform: translate3d(-20%, 0, 0);
-    }
-  }
 }
 
 .app-header {

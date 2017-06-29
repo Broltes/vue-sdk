@@ -64,7 +64,5 @@
     "Android >= 4",
     "iOS >= 8"
   ],
-  "dependencies": {
-    "vue-router": "^2.5.2"
-  }
+  "dependencies": {}
 }

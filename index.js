@@ -9,8 +9,6 @@ import actionsheet from './src/plugins/actionsheet';
 import picker from './src/plugins/picker';
 import datePicker from './src/plugins/datePicker';
 
-import vm from './src/components/vm';
-import AppView from './src/components/AppView';
 import AppHeader from './src/components/AppHeader';
 import AppFooter from './src/components/AppFooter';
 import Loading from './src/components/Loading';
@@ -20,10 +18,7 @@ import Popup from './src/components/Popup';
 import Crop from './src/components/Crop';
 
 export default {
-  install: function (Vue, options) {
-    Object.assign(vm, options);
-
-    Vue.component('app-view', AppView);
+  install: function (Vue) {
     Vue.component('app-header', AppHeader);
     Vue.component('app-footer', AppFooter);
     Vue.component('loading', Loading);
@@ -41,8 +36,5 @@ export {
   dialog,
   actionsheet,
   picker,
-  datePicker,
-
-  AppView,
-  AppHeader
+  datePicker
 }
