@@ -8,10 +8,6 @@ import Picker from './Picker';
 import Crop from './Crop';
 import Avatar from './Crop/Avatar';
 
-import Nest from './Nest';
-import NestHolder from './Nest/Holder';
-import Nested from './Nest/Nested';
-
 export default [
   { path: '', component: Home },
   { path: '/cell', component: Cell },
@@ -22,15 +18,6 @@ export default [
   { path: '/picker', component: Picker },
   { path: '/avatar', component: Avatar },
   { path: '/crop', component: Crop },
-
-  {
-    path: '/nest',
-    component: NestHolder,
-    children: [
-      { path: '', name: 'nest', component: Nest, props: true },
-      { path: 'nested', name: 'nested', component: Nested }
-    ]
-  },
 
   { path: '*', component: { template: '<p>Page not found</p>' } }
 ];

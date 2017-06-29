@@ -1,8 +1,7 @@
 <template>
-  <app-view>
+  <router-view>
     <app-header>
       vue-sdk
-      <router-link :to="{ name: 'nest' }" slot="right">nest</router-link>
     </app-header>
 
     <div class="app-body" v-show="footerIndex === 0">
@@ -26,7 +25,7 @@
     </div>
 
     <app-footer :list="footerItems" :index="footerIndex" @switch="setFooterIndex"></app-footer>
-  </app-view>
+  </router-view>
 </template>
 
 <script>

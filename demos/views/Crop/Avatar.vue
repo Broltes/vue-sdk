@@ -1,5 +1,5 @@
 <template>
-  <app-view>
+  <router-view>
     <app-header withback>crop</app-header>
     <div class="app-body">
       <label class="avatar-uploader" :style="{
@@ -11,7 +11,7 @@
         <input type="file" accept="image/*" @change="imgSelected">
       </label>
     </div>
-  </app-view>
+  </router-view>
 </template>
 
 <script>

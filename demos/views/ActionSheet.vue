@@ -1,11 +1,11 @@
 <template>
-  <app-view>
+  <router-view>
     <app-header withback>actionsheet</app-header>
     <div class="app-body demo-actionsheet">
       <actionsheet v-bind="simple" :show="true" :action="simpleAction"></actionsheet>
       <actionsheet v-bind="complex" :show="true" :action="complexAction"></actionsheet>
     </div>
-  </app-view>
+  </router-view>
 </template>
 
 <script>

@@ -1,11 +1,11 @@
 <template>
-  <app-view>
+  <router-view>
     <div>
       <a class="crop-btn" @click="$router.back()">取消</a>
       <a class="crop-btn" @click="crop">确定</a>
     </div>
     <crop :img="img" ref="crop"></crop>
-  </app-view>
+  </router-view>
 </template>
 
 <script>

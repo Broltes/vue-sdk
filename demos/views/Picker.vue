@@ -1,10 +1,10 @@
 <template>
-  <app-view>
+  <router-view>
     <app-header withback>picker</app-header>
     <div class="app-body demo-picker">
       <picker :show="true" v-bind="single"></picker>
     </div>
-  </app-view>
+  </router-view>
 </template>
 
 <script>

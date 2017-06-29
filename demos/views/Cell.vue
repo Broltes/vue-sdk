@@ -1,5 +1,5 @@
 <template>
-  <app-view>
+  <router-view>
     <app-header withback>cell</app-header>
     <div class="app-body">
       <div class="cells-title">编辑信息</div>
@@ -59,5 +59,5 @@
 
         <div class="nodata nodata-l"></div>
     </div>
-  </app-view>
+  </router-view>
 </template>

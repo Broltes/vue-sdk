@@ -1,5 +1,5 @@
 <template>
-  <app-view>
+  <router-view>
     <app-header withback>toast</app-header>
     <div class="app-body demo-toast">
       <toast v-bind="loading" :show="true" :mask="false" @click.native="showLoading"></toast>
@@ -7,7 +7,7 @@
       <toast v-bind="warn" :show="true" @click.native="showWarn"></toast>
       <toast v-bind="msg" :show="true" @click.native="showMsg"></toast>
     </div>
-  </app-view>
+  </router-view>
 </template>
 
 <script>

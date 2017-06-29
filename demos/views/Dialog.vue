@@ -1,5 +1,5 @@
 <template>
-  <app-view>
+  <router-view>
     <app-header withback>dialog</app-header>
     <div class="app-body demo-dialog">
       <app-dialog v-bind="options" :show="true" :action="action"></app-dialog>
@@ -15,7 +15,7 @@
         </div>
       </div>
     </div>
-  </app-view>
+  </router-view>
 </template>
 
 <script>
