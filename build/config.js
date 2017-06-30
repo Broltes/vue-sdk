@@ -7,8 +7,7 @@ var config = {
       './demos/main'
     ],
     vendor: [
-      'vue',
-      'vue-router'
+      'vue'
     ]
   },
   alias: {

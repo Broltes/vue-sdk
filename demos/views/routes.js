@@ -19,5 +19,5 @@ export default [
   { path: '/avatar', component: Avatar },
   { path: '/crop', component: Crop },
 
-  { path: '*', component: { template: '<p>Page not found</p>' } }
+  { path: '*', component: { template: '<router-view>Page not found</router-view>' } }
 ];

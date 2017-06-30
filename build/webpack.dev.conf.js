@@ -1,5 +1,6 @@
 var config = require('./config')('development');
 var webpack = require('webpack');
+var path = require('path');
 
 var scssLoaders = [
   'vue-style-loader',
@@ -20,6 +21,7 @@ module.exports = {
 
   resolve: {
     extensions: ['.js', '.vue', '.json'],
+    modules: [path.resolve('node_modules')],
     alias: Object.assign({
       // vue pre-compile
       'vue$': 'vue/dist/vue.esm.js'

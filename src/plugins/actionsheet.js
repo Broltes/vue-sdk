@@ -12,7 +12,6 @@ let getVM = single(function() {
   return $vm;
 });
 
-
 /**
  *
  * @param {Object} options
