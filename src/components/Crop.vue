@@ -69,9 +69,12 @@ export default {
 
       this._minScale = Math.max(
         this._maskInfo.width / this._imgInfo.initialWidth,
-        this._maskInfo.height / this._imgInfo.initialHeight);
-
+        this._maskInfo.height / this._imgInfo.initialHeight
+      );
       this._scaleX = this._scaleY = 0;
+
+      // Apply limits
+      this.touchend({ touches: [] });
     },
     touchstart({ touches }) {
       let p1 = touchToPoint(touches[0]);

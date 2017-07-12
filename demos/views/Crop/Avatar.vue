@@ -5,7 +5,7 @@
       <label class="avatar-uploader" :style="{
           backgroundImage: `url(${img})`,
           backgroundSize: `${sizeRatio.width * 100}% ${sizeRatio.height * 100}%`,
-          backgroundPosition: `${beginPoint.x * 100}% ${beginPoint.y * 100}%`
+          backgroundPosition: `${position.x * 100}% ${position.y * 100}%`
         }">
         <div class="avatar-uploader-label">编辑</div>
         <input type="file" accept="image/*" @change="imgSelected">
@@ -21,7 +21,7 @@ export default {
   data() {
     return {
       img: '',
-      beginPoint: {
+      position: {
         x: 0,
         y: 0
       },
@@ -56,9 +56,12 @@ export default {
 
             Object.assign(this, {
               img,
-              beginPoint: {
-                x: beginPoint.x / (naturalSize.width - cropSize.width),
-                y: beginPoint.y / (naturalSize.height - cropSize.height)
+              position: {
+                // beginPoint.x = 0 => 0%
+                // beginPoint.x + cropSize.width = naturalSize.width => 100%
+                // beginPoint.x: [0, naturalSize.width - cropSize.width]
+                x: beginPoint.x / (naturalSize.width - cropSize.width) || 0,
+                y: beginPoint.y / (naturalSize.height - cropSize.height) || 0
               },
               sizeRatio
             });
