@@ -17,7 +17,7 @@ var config = {
   sassLoaderOptions: {
     data: '@import "~@/scss/_variables";'
   },
-  htmls: [
+  plugins: [
     new HtmlWebpackPlugin({
       title: 'vue-sdk',
       filename: 'index.html',

@@ -31,7 +31,7 @@ module.exports = {
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.NamedModulesPlugin()
-  ].concat(config.htmls),
+  ].concat(config.plugins),
 
   devServer: {
     noInfo: true,

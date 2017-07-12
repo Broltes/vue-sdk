@@ -39,7 +39,7 @@ module.exports = {
       name: 'manifest',
       chunks: ['vendor']
     })
-  ].concat(config.htmls),
+  ].concat(config.plugins),
 
   module: {
     rules: [
