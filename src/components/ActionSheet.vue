@@ -3,11 +3,14 @@
     <div class="actionsheet">
       <div v-if="message" class="actionsheet-message">{{message}}</div>
 
-      <div class="actionsheet-btn" v-for="(item, index) in buttons"
+      <div class="actionsheet-btn"
+        v-for="(item, index) in buttons" :key="index"
         @click="action(index)">{{item}}</div>
 
-      <div class="actionsheet-menu" v-for="(menu, menuIndex) in menus">
-        <div class="actionsheet-menu-item" v-for="(item, index) in menu"
+      <div class="actionsheet-menu"
+        v-for="(menu, menuIndex) in menus" :key="menuIndex">
+        <div class="actionsheet-menu-item"
+          v-for="(item, index) in menu" :key="index"
           @click="action(index, menuIndex)">
           <div class="actionsheet-menu-icon">
             <img v-if="item.img" :src="item.img">

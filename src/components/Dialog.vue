@@ -9,7 +9,7 @@
         <div class="dialog-hd">{{title}}</div>
         <div class="dialog-bd">{{content}}</div>
         <div class="dialog-ft">
-          <a class="dialog-btn" v-for="(btn, index) in buttons" @click="action(index)">{{btn}}</a>
+          <a class="dialog-btn" v-for="(btn, index) in buttons" :key="index" @click="action(index)">{{btn}}</a>
         </div>
       </div>
     </transition>

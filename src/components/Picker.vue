@@ -14,7 +14,10 @@
           <div class="picker-mask" slot="header"></div>
           <div class="picker-indicator" slot="header"></div>
           <div class="picker-list">
-            <div class="picker-item" v-for="item in group">{{item.label || item}}</div>
+            <div class="picker-item"
+              v-for="(item, index) in group" :key="index">
+              {{item.label || item}}
+            </div>
           </div>
         </scroller>
       </div>

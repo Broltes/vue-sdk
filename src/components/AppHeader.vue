@@ -1,7 +1,7 @@
 <template>
   <div class="app-header">
     <div class="app-header-left">
-      <a class="app-header-back" v-if="withback !== undefined" @click="$router.go(-1)"></a>
+      <a class="app-header-back" v-if="withback !== undefined" @click="$router.go(-1)">{{withback}}</a>
       <slot name="left"></slot>
     </div>
 
@@ -17,6 +17,8 @@
 
 <script>
 export default {
-  props: ['withback']
+  props: {
+    withback: String
+  }
 }
 </script>
