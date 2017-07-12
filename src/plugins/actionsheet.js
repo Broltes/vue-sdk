@@ -19,13 +19,14 @@ let getVM = single(function() {
  * @param {Array} options.buttons The text list of simple action buttons
  * @param {Array} options.menus The menu list of complex action items with icons
  * @param {String} options.cancelText The text of cancel button, default to '取消', hidden if if defined as empty string
- * @param {Function} options.action
+ * @param {Function} action
  */
-function actionsheet(options) {
+function actionsheet(options, action) {
   let $vm = getVM();
+  if (action) options.action = action;
 
   Object.assign($vm, {
-    // reset to defaults for omitable params
+    // reset to defaults for omitted params
     message: '',
     cancelText: undefined,
     buttons: null,

@@ -5,15 +5,17 @@ import picker from './picker';
  * @param {Date} options.start
  * @param {Date} options.end
  * @param {Date} options.defaultValue
- * @param {Function} options.action
+ * @param {Function} action
  */
-export default function(options) {
+export default function(options, action) {
   const startYear = options.start.getFullYear();
   const startMonth = options.start.getMonth();
   const startDay = options.start.getDate();
   const endYear = options.end.getFullYear();
   const endMonth = options.end.getMonth();
   const endDay = options.end.getDate();
+
+  if (action) options.action = action;
 
   // compute years
   const years = [];

@@ -16,10 +16,11 @@ let getVM = single(function() {
  *
  * @param {Object} options
  * @param {Array} options.groups
- * @param {Function} options.action
+ * @param {Function} action
  */
-export default function(options) {
+export default function(options, action) {
   let $vm = getVM();
+  if (action) options.action = action;
 
   Object.assign($vm, {
     defaultValue: null

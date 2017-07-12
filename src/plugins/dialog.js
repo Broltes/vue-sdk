@@ -18,10 +18,11 @@ let getVM = single(function() {
  * @param {String} options.title
  * @param {String} options.content
  * @param {Array} options.buttons List of button text
- * @param {Function} options.action
+ * @param {Function} action
  */
-function dialog(options) {
+function dialog(options, action) {
   let $vm = getVM();
+  if (action) options.action = action;
 
   Object.assign($vm, {
     // defaults
