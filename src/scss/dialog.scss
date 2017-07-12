@@ -1,26 +1,33 @@
 .dialog {
   position: fixed;
   top: 30%;
-  left: 0;
   right: 0;
-  margin: 0 auto;
+  left: 0;
   z-index: $dialog-z-index;
+  margin: 0 auto;
+
+  border-radius: .25rem;
+  background-color: $dialog-bg;
+
   width: 80%;
   max-width: 19rem;
-  background-color: $dialog-bg;
-  border-radius: .25rem;
   text-align: center;
 
   // vue transition
-  transition-property: transform, opacity;
   transition-duration: .2s;
+  transition-property: transform, opacity;
+
+  word-wrap: break-word;
+  word-break: break-all;
+
   &-enter {
-    opacity: 0;
     transform: scale(1.2);
-  }
-  &-leave-active {
     opacity: 0;
+  }
+
+  &-leave-active {
     transform: scale(.9);
+    opacity: 0;
   }
 
 
@@ -42,13 +49,13 @@
   &-btn {
     display: block;
     flex: 1;
+    border-right: 1px solid $dialog-border-color;
     line-height: 3;
     color: inherit;
-    border-right: 1px solid $dialog-border-color;
 
     &:last-child {
-      color: $dialog-primary-color;
       border: 0;
+      color: $dialog-primary-color;
     }
   }
 }
