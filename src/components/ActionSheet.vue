@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import Popup from './Popup';
+
 export default {
   props: ['show', 'message', 'buttons', 'menus', 'cancelText', 'action', 'cancel'],
   methods: {
@@ -33,6 +35,11 @@ export default {
     maskClick() {
       this.cancel();
     }
+  },
+  // Child components will work incorrectly after build,
+  // if only registered by the install function
+  components: {
+    popup: Popup
   }
 }
 </script>
