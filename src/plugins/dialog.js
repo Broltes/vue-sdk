@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Dialog from '../components/Dialog';
-import { single } from '../modules/utils';
+import { once } from '../modules/utils';
 
-let getVM = single(function() {
+let getVM = once(function() {
   let $vm = new (Vue.extend(Dialog))({
     el: document.createElement('div')
   });

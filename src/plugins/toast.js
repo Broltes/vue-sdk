@@ -1,9 +1,9 @@
 import Vue from 'vue';
 import Toast from '../components/Toast';
-import { single } from '../modules/utils';
+import { once } from '../modules/utils';
 
 let tid;
-let getVM = single(function() {
+let getVM = once(function() {
   let $vm = new (Vue.extend(Toast))({
     el: document.createElement('div')
   });

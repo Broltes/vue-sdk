@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import Picker from '../components/Picker';
-import { single } from '../modules/utils';
+import { once } from '../modules/utils';
 
-let getVM = single(function() {
+let getVM = once(function() {
   let $vm = new (Vue.extend(Picker))({
     el: document.createElement('div')
   });
