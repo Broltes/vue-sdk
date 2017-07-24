@@ -19,14 +19,7 @@ module.exports = {
     filename: '[name].js' // for multi chunks
   },
 
-  resolve: {
-    extensions: ['.js', '.vue', '.json'],
-    modules: [path.resolve('node_modules')],
-    alias: Object.assign({
-      // vue pre-compile
-      'vue$': 'vue/dist/vue.esm.js'
-    }, config.alias)
-  },
+  resolve: config.resolve,
 
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),

@@ -10,9 +10,17 @@ var config = {
       'vue'
     ]
   },
-  alias: {
-    '@': path.resolve('demos'),
-    'vue-sdk': path.resolve('./')
+  resolve: {
+    extensions: ['.js', '.vue', '.json'],
+    // Limit the module searching
+    modules: [path.resolve('node_modules')],
+    alias: {
+      // vue pre-compile
+      'vue$': 'vue/dist/vue.esm.js',
+      '@': path.resolve('demos'),
+      'vue-sdk': path.resolve('./'),
+      'vue-app-router': path.resolve('../github/vue-app-router')
+    }
   },
   sassLoaderOptions: {
     data: '@import "~@/scss/variables";'

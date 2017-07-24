@@ -19,16 +19,10 @@ module.exports = {
 
   output: {
     path: config.outputPath,
-    filename: '[name].js' // for multi chunks
+    filename: '[name].js?[chunkhash]' // for multi chunks
   },
 
-  resolve: {
-    extensions: ['.js', '.vue', '.json'],
-    alias: Object.assign({
-      // vue pre-compile
-      'vue$': 'vue/dist/vue.esm.js'
-    }, config.alias)
-  },
+  resolve: config.resolve,
 
   plugins: [
     new ExtractTextPlugin('[name].css?[contenthash]'),
