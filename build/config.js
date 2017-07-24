@@ -15,7 +15,7 @@ var config = {
     'vue-sdk': path.resolve('./')
   },
   sassLoaderOptions: {
-    data: '@import "~@/scss/_variables";'
+    data: '@import "~@/scss/variables";'
   },
   plugins: [
     new HtmlWebpackPlugin({

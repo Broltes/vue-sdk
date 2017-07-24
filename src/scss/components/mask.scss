@@ -10,9 +10,11 @@ $mask-z-index: 1000;
 
   // vue transition
   transition: opacity .2s;
+
   &-enter {
     opacity: 0;
   }
+
   &-leave-active {
     opacity: 0;
   }

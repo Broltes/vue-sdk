@@ -1,4 +1,4 @@
-import './src/scss/_.scss';
+import './src/scss/index.scss';
 import './src/svg'
 
 import http from './src/modules/http';

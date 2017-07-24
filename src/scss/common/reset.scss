@@ -47,15 +47,16 @@ img {
 a {
   color: $link-color;
   text-decoration: none;
+}
 
+.link {
   @include pc {
-    &:hover{
+    :hover {
       color: $link-hover-color;
       text-decoration: underline;
     }
   }
 }
-
 
 input,
 button,
