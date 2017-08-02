@@ -8,7 +8,7 @@
           backgroundPosition: `${position.x * 100}% ${position.y * 100}%`
         }">
         <div class="avatar-uploader-label">编辑</div>
-        <input type="file" accept="image/*" @change="imgSelected">
+        <input type="file" accept="image/png,image/jpeg,image/jpg" @change="imgSelected">
       </label>
     </div>
   </router-view>
