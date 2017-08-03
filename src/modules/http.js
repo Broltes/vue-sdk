@@ -17,48 +17,48 @@ export default ({
   onfail
 }) => {
   return new Promise((resolve, reject) => {
-    let req = new XMLHttpRequest();
+    let req = new XMLHttpRequest()
 
-    type = type.toUpperCase();
+    type = type.toUpperCase()
 
-    req.open(type, url, true);
-    req.timeout = timeout;
-    req.withCredentials = withCredentials;
+    req.open(type, url, true)
+    req.timeout = timeout
+    req.withCredentials = withCredentials
 
     for (let key in headers) {
-      req.setRequestHeader(key, headers[key]);
+      req.setRequestHeader(key, headers[key])
     }
 
     function rejectWith(fn) {
       return function() {
-        fn(req);
-        reject(req);
+        fn(req)
+        reject(req)
       }
     }
 
     // network error
-    req.onerror = rejectWith(onerror);
+    req.onerror = rejectWith(onerror)
 
     // timeout error
-    req.ontimeout = rejectWith(ontimeout);
+    req.ontimeout = rejectWith(ontimeout)
 
     // xhr.readystate = 4
     req.onload = function() {
       // success
-      if (req.status < 400) resolve(req);
+      if (req.status < 400) resolve(req)
       // server error
-      else rejectWith(onfail)();
-    };
-
-    req.send(data);
-  }).then(req => {
-    // resolve result
-    let result = req.responseText;
-
-    if (/json/.test(req.getResponseHeader('Content-Type'))) {
-      result = JSON.parse(req.responseText || null);
+      else rejectWith(onfail)()
     }
 
-    return result;
-  });
+    req.send(data)
+  }).then(req => {
+    // resolve result
+    let result = req.responseText
+
+    if (/json/.test(req.getResponseHeader('Content-Type'))) {
+      result = JSON.parse(req.responseText || null)
+    }
+
+    return result
+  })
 }

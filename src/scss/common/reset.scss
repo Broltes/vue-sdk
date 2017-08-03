@@ -7,23 +7,25 @@
 
 html {
   box-sizing: border-box;
+  font-size: $font-size;
   -webkit-text-size-adjust: 100%;// Prevent adjustments of font size after orientation changes
-  -webkit-tap-highlight-color: rgba(0,0,0,0); // disable the default tap highlight on android
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // disable the default tap highlight on android
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: inherit;
+* {
+  &,
+  &::before,
+  &::after {
+    box-sizing: inherit;
+  }
 }
 
 body {
   margin: 0;
   font-family:
-    -apple-system,"PingFang SC","Helvetica Neue",
-    "Hiragino Sans GB","Helvetica","Microsoft YaHei",Arial,
-    sans-serif,"iconfont";
-  font-size: $font-size;
+  -apple-system, 'PingFang SC', 'Helvetica Neue',
+  'Hiragino Sans GB', 'Helvetica', 'Microsoft YaHei', Arial,
+  sans-serif, 'iconfont';
   line-height: 1.5;
   color: $color;
   background-color: $bg;

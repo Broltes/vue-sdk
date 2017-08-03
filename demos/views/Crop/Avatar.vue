@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import mediator from '../mediator';
+import mediator from '../mediator'
 
 export default {
   data() {
@@ -29,22 +29,22 @@ export default {
         width: 1,
         height: 1
       }
-    };
+    }
   },
   methods: {
     imgSelected(e) {
-      let target = e.target;
-      let files = [].slice.call(target.files);// convert filelist to normal array
-      target.value = null;// reset input value
+      let target = e.target
+      let files = [].slice.call(target.files)// convert filelist to normal array
+      target.value = null// reset input value
 
-      let imgFile = files[0];
-      if (!imgFile) return;
+      let imgFile = files[0]
+      if (!imgFile) return
 
-      let reader = new FileReader();
-      reader.readAsDataURL(imgFile);
+      let reader = new FileReader()
+      reader.readAsDataURL(imgFile)
       reader.onload = e => {
         // replace for android4.x
-        let img = e.target.result.replace('data:base64', 'data:image/jpeg;base64');
+        let img = e.target.result.replace('data:base64', 'data:image/jpeg;base64')
 
         mediator.post({
           img,
@@ -52,7 +52,7 @@ export default {
             let sizeRatio = {
               width: naturalSize.width / cropSize.width,
               height: naturalSize.height / cropSize.height
-            };
+            }
 
             Object.assign(this, {
               img,
@@ -64,11 +64,11 @@ export default {
                 y: beginPoint.y / (naturalSize.height - cropSize.height) || 0
               },
               sizeRatio
-            });
+            })
           }
-        });
-        this.$router.push('/crop');
-      };
+        })
+        this.$router.push('/crop')
+      }
     }
   }
 }

@@ -9,11 +9,11 @@
 </template>
 
 <script>
-import { actionsheet } from 'vue-sdk';
-import ActionSheet from 'vue-sdk/src/components/ActionSheet';
-import qq from '@/img/qq.png';
-import weibo from '@/img/weibo.png';
-import weixin from '@/img/weixin.png';
+import { actionsheet } from 'vue-sdk'
+import ActionSheet from 'vue-sdk/src/components/ActionSheet'
+import qq from '@/img/qq.png'
+import weibo from '@/img/weibo.png'
+import weixin from '@/img/weixin.png'
 
 export default {
   data() {
@@ -48,7 +48,7 @@ export default {
         action(index) {
           console.log(index)
         }
-      });
+      })
     },
     complexAction() {
       actionsheet({
@@ -56,7 +56,7 @@ export default {
         action(index, menuIndex) {
           console.log(index, menuIndex)
         }
-      });
+      })
     }
   },
   components: {

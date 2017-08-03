@@ -23,13 +23,13 @@ export default {
       return this.list.map((item, i) => {
         return Object.assign({
           index: i
-        }, item);
+        }, item)
       })
     }
   },
   methods: {
     setIndex(index) {
-      this.$emit('switch', index);
+      this.$emit('switch', index)
     }
   }
 }

@@ -1,12 +1,12 @@
-import Home from './Home';
-import Cell from './Cell';
-import Button from './Button';
-import Toast from './Toast';
-import Dialog from './Dialog';
-import ActionSheet from './ActionSheet';
-import Picker from './Picker';
-import Crop from './Crop';
-import Avatar from './Crop/Avatar';
+import Home from './Home'
+import Cell from './Cell'
+import Button from './Button'
+import Toast from './Toast'
+import Dialog from './Dialog'
+import ActionSheet from './ActionSheet'
+import Picker from './Picker'
+import Crop from './Crop'
+import Avatar from './Crop/Avatar'
 
 export default [
   { path: '', component: Home },
@@ -20,4 +20,4 @@ export default [
   { path: '/crop', component: Crop },
 
   { path: '*', component: { template: '<router-view>Page not found</router-view>' } }
-];
+]

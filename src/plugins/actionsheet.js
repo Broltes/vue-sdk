@@ -1,16 +1,16 @@
-import Vue from 'vue';
-import ActionSheet from '../components/ActionSheet';
-import { once } from '../modules/utils';
+import Vue from 'vue'
+import ActionSheet from '../components/ActionSheet'
+import { once } from '../modules/utils'
 
 let getVM = once(function() {
   let $vm = new (Vue.extend(ActionSheet))({
     el: document.createElement('div')
-  });
+  })
 
-  document.body.appendChild($vm.$el);
+  document.body.appendChild($vm.$el)
 
-  return $vm;
-});
+  return $vm
+})
 
 /**
  *
@@ -22,8 +22,8 @@ let getVM = once(function() {
  * @param {Function} action
  */
 function actionsheet(options, action) {
-  let $vm = getVM();
-  if (action) options.action = action;
+  let $vm = getVM()
+  if (action) options.action = action
 
   Object.assign($vm, {
     // reset to defaults for omitted params
@@ -34,14 +34,14 @@ function actionsheet(options, action) {
   }, options, {
     show: 1,
     action(index, menuIndex) {
-      $vm.show = 0;
+      $vm.show = 0
 
-      options.action.apply(this, arguments);
+      options.action.apply(this, arguments)
     },
     cancel() {
-      $vm.show = 0;
+      $vm.show = 0
     }
-  });
+  })
 }
 
-export default actionsheet;
+export default actionsheet

@@ -9,24 +9,24 @@
 </template>
 
 <script>
-import mediator from '../mediator';
+import mediator from '../mediator'
 
 export default {
   data() {
     return {
       img: ''
-    };
+    }
   },
   methods: {
     crop() {
-      this._onCrop(this.$refs.crop.crop());
-      this.$router.back();
+      this._onCrop(this.$refs.crop.crop())
+      this.$router.back()
     }
   },
   created() {
-    let { img, onCrop } = mediator.fetch();
-    this._onCrop = onCrop;
-    this.img = img;
+    let { img, onCrop } = mediator.fetch()
+    this._onCrop = onCrop
+    this.img = img
   }
 }
 </script>

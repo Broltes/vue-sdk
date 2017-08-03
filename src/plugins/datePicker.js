@@ -1,4 +1,4 @@
-import picker from './picker';
+import picker from './picker'
 
 /**
  * @param {Object} options
@@ -8,22 +8,22 @@ import picker from './picker';
  * @param {Function} action
  */
 export default function(options, action) {
-  const startYear = options.start.getFullYear();
-  const startMonth = options.start.getMonth();
-  const startDay = options.start.getDate();
-  const endYear = options.end.getFullYear();
-  const endMonth = options.end.getMonth();
-  const endDay = options.end.getDate();
+  const startYear = options.start.getFullYear()
+  const startMonth = options.start.getMonth()
+  const startDay = options.start.getDate()
+  const endYear = options.end.getFullYear()
+  const endMonth = options.end.getMonth()
+  const endDay = options.end.getDate()
 
-  if (action) options.action = action;
+  if (action) options.action = action
 
   // compute years
-  const years = [];
+  const years = []
   for (let y = startYear; y <= endYear; y++) {
     years.push({
       label: y + '年',
       value: y
-    });
+    })
   }
 
   // enumerate moths
@@ -33,7 +33,7 @@ export default function(options, action) {
       // months start from 0
       value: index
     }
-  });
+  })
 
   // enumerate day
   const days = Array.apply(null, Array(31)).map(function(item, index) {
@@ -41,13 +41,13 @@ export default function(options, action) {
       label: (index + 1) + '日',
       value: index + 1
     }
-  });
+  })
 
   // Parse defaultDate to picker array
-  let defaultValue;
-  let { defaultDate } = options;
+  let defaultValue
+  let { defaultDate } = options
   if (defaultDate) {
-    defaultValue = [defaultDate.getFullYear(), defaultDate.getMonth(), defaultDate.getDate()];
+    defaultValue = [defaultDate.getFullYear(), defaultDate.getMonth(), defaultDate.getDate()]
   }
 
   picker({
@@ -55,25 +55,25 @@ export default function(options, action) {
       years,
       // month maker
       function([year]) {
-        if (year === startYear) return months.slice(startMonth - 1);
-        if (year === endYear) return months.slice(0, endMonth + 1);
+        if (year === startYear) return months.slice(startMonth - 1)
+        if (year === endYear) return months.slice(0, endMonth + 1)
 
-        return months;
+        return months
       },
       // day maker
       function([year, month]) {
         // how many days in the month
-        let monthDays = days.slice(0, new Date(year, month + 1, 0).getDate());
+        let monthDays = days.slice(0, new Date(year, month + 1, 0).getDate())
 
-        if (year === startYear && month === startMonth) return monthDays.slice(startDay - 1);
-        if (year === endYear && month === endMonth) return monthDays.slice(0, endDay);
+        if (year === startYear && month === startMonth) return monthDays.slice(startDay - 1)
+        if (year === endYear && month === endMonth) return monthDays.slice(0, endDay)
 
-        return monthDays;
+        return monthDays
       }
     ],
     defaultValue,
     action(value) {
       options.action(new Date(...value), value)
     }
-  });
+  })
 }

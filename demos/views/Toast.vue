@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import { toast } from 'vue-sdk';
-import Toast from 'vue-sdk/src/components/Toast';
+import { toast } from 'vue-sdk'
+import Toast from 'vue-sdk/src/components/Toast'
 
 export default {
   data() {
@@ -37,16 +37,16 @@ export default {
   },
   methods: {
     showLoading() {
-      toast.show(this.loading);
+      toast.show(this.loading)
     },
     showSuccess() {
-      toast.show(this.success);
+      toast.show(this.success)
     },
     showWarn() {
-      toast.show(this.warn);
+      toast.show(this.warn)
     },
     showMsg() {
-      toast.show(this.msg);
+      toast.show(this.msg)
     }
   },
   components: {

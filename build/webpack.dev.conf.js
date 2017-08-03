@@ -1,6 +1,5 @@
-var config = require('./config')('development');
-var webpack = require('webpack');
-var path = require('path');
+var config = require('./config')('development')
+var webpack = require('webpack')
 
 var scssLoaders = [
   'vue-style-loader',
@@ -10,7 +9,7 @@ var scssLoaders = [
     loader: 'sass-loader',
     options: config.sassLoaderOptions
   }
-];
+]
 
 module.exports = {
   entry: config.entry,
@@ -84,4 +83,4 @@ module.exports = {
       }
     ]
   }
-};
+}

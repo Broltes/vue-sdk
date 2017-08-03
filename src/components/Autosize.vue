@@ -11,11 +11,11 @@ export default {
   methods: {
     update(e) {
       //  resize
-      const el = e.target;
-      el.style.height = 'auto';
-      el.style.height = Math.max(el.scrollHeight, el.offsetHeight) + 'px';
+      const el = e.target
+      el.style.height = 'auto'
+      el.style.height = Math.max(el.scrollHeight, el.offsetHeight) + 'px'
 
-      this.$emit('input', el.value);
+      this.$emit('input', el.value)
     }
   }
 }

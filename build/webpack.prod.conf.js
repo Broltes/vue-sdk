@@ -1,6 +1,6 @@
-var config = require('./config')('production');
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var config = require('./config')('production')
+var webpack = require('webpack')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 var scssLoaders = ExtractTextPlugin.extract({
   use: [
@@ -12,7 +12,7 @@ var scssLoaders = ExtractTextPlugin.extract({
     }
   ],
   fallback: 'vue-style-loader'
-});
+})
 
 module.exports = {
   entry: config.entry,
@@ -88,4 +88,4 @@ module.exports = {
       }
     ]
   }
-};
+}

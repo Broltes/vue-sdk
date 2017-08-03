@@ -1,11 +1,11 @@
-let cache;
+let cache
 
 function post(data) {
-  cache = data;
+  cache = data
 }
 
 function fetch() {
-  return cache;
+  return cache
 }
 
 export default {

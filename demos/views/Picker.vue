@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import { toast, picker, datePicker } from 'vue-sdk';
-import Picker from 'vue-sdk/src/components/Picker';
+import { toast, picker, datePicker } from 'vue-sdk'
+import Picker from 'vue-sdk/src/components/Picker'
 
 export default {
   data() {
@@ -23,13 +23,13 @@ export default {
                 label: (index + 1) + '月',
                 value: index + 1
               }
-            });
+            })
 
             switch (year) {
               case 2015:
-                return months.slice(4 - 1);
+                return months.slice(4 - 1)
               default:
-                return months;
+                return months
             }
           },
           function([year]) {
@@ -40,9 +40,9 @@ export default {
                     label: (index + 1) + '日',
                     value: index + 1
                   }
-                });
+                })
               default:
-                return [];
+                return []
             }
           }
         ],
@@ -51,9 +51,9 @@ export default {
             groups: this.single.groups,
             defaultValue: value,
             action(value) {
-              toast.show({ message: value });
+              toast.show({ message: value })
             }
-          });
+          })
         },
         cancel() {
           datePicker({
@@ -61,9 +61,9 @@ export default {
             end: new Date(),
             defaultDate: new Date(),
             action(date) {
-              toast.show({ message: date.toLocaleDateString() });
+              toast.show({ message: date.toLocaleDateString() })
             }
-          });
+          })
         }
       }
     }

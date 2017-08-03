@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import { dialog } from 'vue-sdk';
-import Dialog from 'vue-sdk/src/components/Dialog';
+import { dialog } from 'vue-sdk'
+import Dialog from 'vue-sdk/src/components/Dialog'
 
 export default {
   data() {
@@ -38,9 +38,9 @@ export default {
         ...this.options,
         buttons: ['取消', '确定'].slice(-(demoIndex + 1)),
         action(index) {
-          console.log(index, 'clicked');
+          console.log(index, 'clicked')
         }
-      });
+      })
     },
     test(buttonsLength) {
       dialog({
@@ -48,9 +48,9 @@ export default {
         content: this.content,
         buttons: ['取消', '确定'].slice(-buttonsLength),
         action(index) {
-          console.log(index, 'clicked');
+          console.log(index, 'clicked')
         }
-      });
+      })
     }
   },
   components: {

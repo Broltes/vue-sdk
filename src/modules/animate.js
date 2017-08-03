@@ -1,38 +1,38 @@
-let lastTime = 0;
+let lastTime = 0
 const rAF = window.requestAnimationFrame || window.webkitRequestAnimationFrame || function(callback, element) {
-  let currTime = Date.now();
-  let timeToCall = Math.max(0, 16 - (currTime - lastTime));
-  lastTime = currTime + timeToCall;
+  let currTime = Date.now()
+  let timeToCall = Math.max(0, 16 - (currTime - lastTime))
+  lastTime = currTime + timeToCall
 
   let id = setTimeout(function() {
-    callback(lastTime);
-  }, timeToCall);
-  return id;
+    callback(lastTime)
+  }, timeToCall)
+  return id
 }
 // const cAF = window.cancelAnimationFrame || window.webkitCancelAnimationFrame || clearTimeout;
 
-let running = {};
-let counter = 1;
+let running = {}
+let counter = 1
 
 export default {
   start(stepCallback, duration, easingMethod, root) {
-    let id = counter++;
-    let percent = 0;
-    let start = Date.now();
+    let id = counter++
+    let percent = 0
+    let start = Date.now()
 
     if (!root) {
-      root = document.body;
+      root = document.body
     }
 
     // This is the internal step method which is called every few milliseconds
     function step(virtual) {
-      let now = Date.now();
+      let now = Date.now()
 
       // Compute percent value
       if (duration) {
-        percent = (now - start) / duration;
+        percent = (now - start) / duration
         if (percent > 1) {
-          percent = 1;
+          percent = 1
         }
       }
 
@@ -40,22 +40,22 @@ export default {
         let easedPercent = easingMethod ? easingMethod(percent) : percent
         if (stepCallback(easedPercent) === false || percent === 1) {
           // Stop animation
-          running[id] = null;
+          running[id] = null
         } else {
           // Step to next
-          rAF(step, root);
+          rAF(step, root)
         }
       }
     }
 
     // Mark as running
-    running[id] = true;
-    rAF(step, root);
-    return id;
+    running[id] = true
+    rAF(step, root)
+    return id
   },
   // Stops the given animation.
   stop(id) {
-    running[id] = null;
+    running[id] = null
   },
 
   easeOutCubic (pos) {

@@ -1,7 +1,7 @@
 function once(fn) {
-  let result;
+  let result
   return function() {
-    return result || (result = fn.apply(this, arguments));
+    return result || (result = fn.apply(this, arguments))
   }
 }
 

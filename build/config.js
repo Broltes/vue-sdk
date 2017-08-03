@@ -1,5 +1,5 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var path = require('path')
 
 var config = {
   entry: {
@@ -35,7 +35,7 @@ var config = {
   ],
   // for production
   outputPath: path.resolve('../github/github.io/vue-sdk')
-};
+}
 
 module.exports = function(ENV) {
   if (ENV === 'development') {
@@ -46,8 +46,8 @@ module.exports = function(ENV) {
         './demos/main'
       ],
       port: 8080
-    });
+    })
   }
 
-  return config;
-};
+  return config
+}

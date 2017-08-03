@@ -31,7 +31,7 @@ export default {
   methods: {
     // cancel not ready when init plugin
     maskClick() {
-      this.cancel();
+      this.cancel()
     }
   }
 }

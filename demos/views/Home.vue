@@ -13,6 +13,7 @@
         <router-link to="/actionsheet" class="cell cell-access"><div class="cell-bd">actionsheet</div></router-link>
         <router-link to="/picker" class="cell cell-access"><div class="cell-bd">picker</div></router-link>
         <router-link to="/avatar" class="cell cell-access"><div class="cell-bd">crop</div></router-link>
+        <a @click="pullLoaderNews" class="cell cell-access"><div class="cell-bd">pull to refresh</div></a>
       </div>
 
       <div class="x-content"></div>
@@ -29,6 +30,8 @@
 </template>
 
 <script>
+import { dialog } from 'vue-sdk'
+
 export default {
   data() {
     return {
@@ -42,7 +45,14 @@ export default {
   },
   methods: {
     setFooterIndex(index) {
-      this.footerIndex = index;
+      this.footerIndex = index
+    },
+    pullLoaderNews() {
+      dialog({
+        title: 'Comming soon',
+        content: 'pull to refresh and load more when scroll to bottom',
+        buttons: ['Ok']
+      })
     }
   }
 }
