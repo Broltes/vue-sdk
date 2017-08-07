@@ -2,7 +2,6 @@
  * HTTP client for ajax, like vue-resource, but smaller and stand alone
  * @param {Object} options
  * @param {Function} options.onerror especially for network error
- * @param {Function} options.onfail for server error
  */
 export default ({
   type,
@@ -13,8 +12,7 @@ export default ({
 
   timeout,
   ontimeout,
-  onerror,
-  onfail
+  onerror
 }) => {
   return new Promise((resolve, reject) => {
     let req = new XMLHttpRequest()
@@ -42,23 +40,17 @@ export default ({
     // timeout error
     req.ontimeout = rejectWith(ontimeout)
 
-    // xhr.readystate = 4
+    // xhr.readyState = 4
     req.onload = function() {
-      // success
-      if (req.status < 400) resolve(req)
-      // server error
-      else rejectWith(onfail)()
+      resolve(req)
     }
 
     req.send(data)
   }).then(req => {
-    // resolve result
-    let result = req.responseText
-
     if (/json/.test(req.getResponseHeader('Content-Type'))) {
-      result = JSON.parse(req.responseText || null)
+      req.data = JSON.parse(req.responseText || null)
     }
 
-    return result
+    return req
   })
 }
