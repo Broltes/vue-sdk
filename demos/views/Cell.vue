@@ -45,7 +45,14 @@
 
           <label class="cell">
             <div class="cell-label">匿名购买</div>
-            <input type="checkbox">
+            <input type="checkbox" class="checkbox">
+          </label>
+
+          <label class="cell">
+            <div class="cell-hd">
+              <input type="radio" class="radio">
+            </div>
+            <div class="cell-bd">同意</div>
           </label>
         </div>
         <div class="cells-tip">请选择以上选项</div>

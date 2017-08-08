@@ -1,0 +1,48 @@
+.checkbox,
+.radio {
+  font-size: 1.375rem;
+  width: 1em;
+  height: 1em;
+  background-color: $bg;
+  border: 1px solid darken($bg, 20%);
+  border-radius: 100%;
+  vertical-align: middle;
+  position: relative;
+  appearance: none;
+}
+
+.checkbox {
+  &:checked {
+    color: darken($bg, 5%);
+    border-color: $color-primary;
+    background-color: $color-primary;
+
+    &::after {
+      content: '';
+      position: absolute;
+      height: .6em;
+      width: .3em;
+      left: .3em;
+      top: .1em;
+      border: solid;
+      border-width: 0 2px 2px 0;
+      transform: rotateZ(45deg);
+    }
+  }
+}
+
+.radio {
+  &:checked {
+    &::after {
+      content: '';
+      position: absolute;
+      left: -1px;
+      top: -1px;
+      height: 1em;
+      width: 1em;
+      border-radius: 100%;
+      background-color: $color-primary;
+      transform: scale(.4);
+    }
+  }
+}
