@@ -1,10 +1,12 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var path = require('path')
+var dist = require('../package.json').DIST || 'dist'
+var devPort = 8080
 
 var config = {
   entry: {
     app: [
-      './demos/main'
+      './example/main'
     ],
     vendor: [
       'vue'
@@ -17,7 +19,7 @@ var config = {
     alias: {
       // vue pre-compile
       'vue$': 'vue/dist/vue.esm.js',
-      '@': path.resolve('demos'),
+      '@': path.resolve('example'),
       'vue-sdk': path.resolve('./'),
       'vue-app-router': path.resolve('../github/vue-app-router')
     }
@@ -34,18 +36,14 @@ var config = {
     })
   ],
   // for production
-  outputPath: path.resolve('../github/github.io/vue-sdk')
+  outputPath: path.resolve(dist)
 }
 
 module.exports = function(ENV) {
   if (ENV === 'development') {
     Object.assign(config, {
-      entry: [
-        // polyfill for HMR on old devices.
-        'babel-polyfill',
-        './demos/main'
-      ],
-      port: 8080
+      entry: config.entry.app,
+      port: devPort
     })
   }
 

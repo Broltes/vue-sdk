@@ -3,10 +3,11 @@
   "version": "0.0.1",
   "description": "VUE based web application Software Development Kit",
   "main": "index.js",
+  "DIST": "demo",
   "scripts": {
     "dev": "webpack-dev-server --hot --config build/webpack.dev.conf.js",
     "build": "webpack -p --progress --config build/webpack.prod.conf.js",
-    "clean": "rm -rf ../github/vue-sdk",
+    "deploy": "bash build/deploy.sh",
     "eslint": "./node_modules/.bin/eslint . --ext .js,.vue --fix;exit 0",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
