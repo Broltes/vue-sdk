@@ -1,3 +1,4 @@
+import 'babel-polyfill'
 import Vue from 'vue'
 import sdk from 'vue-sdk'
 import appRouter from 'vue-app-router'
