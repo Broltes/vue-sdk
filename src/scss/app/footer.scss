@@ -10,7 +10,7 @@
     text-align: center;
     color: $footer-color;
 
-    &-active {
+    &--active {
       color: $footer-active-color;
     }
   }
@@ -33,7 +33,13 @@
     transform: translateY(-30%);
   }
 
-  .icon {
+  .icon,
+  img {
     font-size: $font-size-xxxl;
+  }
+
+  img {
+    width: 1em;
+    height: 1em;
   }
 }
