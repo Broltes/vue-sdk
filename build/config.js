@@ -2,6 +2,8 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var path = require('path')
 var dist = require('../package.json').DIST || 'dist'
 var devPort = 8080
+// Limit the module searching
+var modules = module.paths.slice(1, 2)
 
 var config = {
   entry: {
@@ -14,15 +16,17 @@ var config = {
   },
   resolve: {
     extensions: ['.js', '.vue', '.json'],
-    // Limit the module searching
-    modules: [path.resolve('node_modules')],
+    // Add the path of developing modules,
+    // such as current vue-sdk and vue-app-router
+    modules: modules.concat('../'),
     alias: {
       // vue pre-compile
       'vue$': 'vue/dist/vue.esm.js',
-      '@': path.resolve('example'),
-      'vue-sdk': path.resolve('./'),
-      'vue-app-router': path.resolve('../github/vue-app-router')
+      '@': path.resolve('example')
     }
+  },
+  resolveLoader: {
+    modules
   },
   sassLoaderOptions: {
     data: '@import "~@/scss/variables";'
