@@ -1,6 +1,5 @@
 var config = require('./config')('development')
 var webpack = require('webpack')
-var OpenBrowserPlugin = require('open-browser-webpack-plugin')
 
 var scssLoaders = [
   'vue-style-loader',
@@ -24,8 +23,7 @@ module.exports = {
 
   plugins: [
     new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new OpenBrowserPlugin({ url: `http://localhost:${config.port}` })
+    new webpack.NamedModulesPlugin()
   ].concat(config.plugins),
 
   devServer: {
