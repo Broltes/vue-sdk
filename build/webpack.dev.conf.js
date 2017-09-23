@@ -58,7 +58,8 @@ module.exports = {
 
       {
         test: /\.js$/,
-        exclude: /node_modules/,
+        // transform webpack-dev-server/client/index.js for iOS 8
+        exclude: /node_modules\/(?!webpack-dev)/,
         loader: 'babel-loader'
       },
 
