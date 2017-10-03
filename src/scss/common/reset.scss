@@ -46,12 +46,10 @@ img {
 }
 
 
-a {
+.link {
   color: $link-color;
   text-decoration: none;
-}
 
-.link {
   @include pc {
     :hover {
       color: $link-hover-color;
