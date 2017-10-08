@@ -1,24 +1,25 @@
 $bg: #fff !default;
 $bg-dark: #f5f5f9 !default;
 $color: #292b2c !default;
-$color-light: #888 !default;
+$color-gray: #888 !default;
+$color-light: #bbb !default;
 $color-primary: #1aad19 !default;
-
+$border-color: #e5e5e5;
 $link-color: #586c94 !default;
 $link-hover-color: darken($link-color, 15%) !default;
 
 // font-size
 //
-$font-size-xxxxl: 2rem;     // 32px
-$font-size-xxxl:  1.75rem;  // 28px
-$font-size-xxl:   1.5rem;   // 24px
-$font-size-xl:    1.25rem;  // 20px
-$font-size-l:     1.125rem; // 18px
-$font-size-m:     1.0625rem;// 17px
-$font-size:       1rem;     // 16px
-$font-size-s:     .875rem;  // 14px
-$font-size-xs:    .75rem;   // 12px
-$font-size-xxs:   .625rem;  // 10px
+$font-size-xxxxl: 2rem;           // 32px
+$font-size-xxxl:  1.75rem;        // 28px
+$font-size-xxl:   1.5rem;         // 24px
+$font-size-xl:    1.25rem;        // 20px
+$font-size-l:     1.125rem;       // 18px
+$font-size-m:     1.0625rem;      // 17px
+$font-size:       1rem !default;  // 16px
+$font-size-s:     .875rem;        // 14px
+$font-size-xs:    .75rem;         // 12px
+$font-size-xxs:   .625rem;        // 10px
 
 // media queries
 //
@@ -69,18 +70,18 @@ $badge-size: $font-size-xs !default;
 $cells-gap: 1.5rem !default;
 $cells-title-gap: .375rem !default;
 $cells-title-size: $font-size-s !default;
-$cells-title-color: $color-light !default;
+$cells-title-color: $color-gray !default;
 
 $cell-border-color: darken($bg, 10%) !default;
 $cell-gap-v: .625rem !default;
 $cell-gap-h: 1rem !default;
 $cell-placehoder-color: lighten($color, 60%) !default;
-$cell-hd-color: darken($color-light, 15%) !default;
-$cell-ft-color: $color-light !default;
+$cell-hd-color: darken($color-gray, 15%) !default;
+$cell-ft-color: $color-gray !default;
 
 // toast
 //
-$toast-bg: rgba(0,0,0,.7) !default;
+$toast-bg: rgba(0, 0, 0, .7) !default;
 $toast-top: 8rem !default;
 $toast-font-size: $font-size-s !default;
 

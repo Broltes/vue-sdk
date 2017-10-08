@@ -8,6 +8,7 @@
 html {
   box-sizing: border-box;
   font-size: $font-size;
+  touch-action: manipulation;// fast click for iOS, if viewport scaled
   -webkit-text-size-adjust: 100%;// Prevent adjustments of font size after orientation changes
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // disable the default tap highlight on android
 }
