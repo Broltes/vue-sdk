@@ -7,6 +7,8 @@ let getVM = once(function() {
     el: document.createElement('div')
   })
 
+  $vm.$on('cancel', () => { $vm.show = 0 })
+
   document.body.appendChild($vm.$el)
 
   return $vm
@@ -16,22 +18,20 @@ let getVM = once(function() {
  *
  * @param {Object} options
  * @param {Array} options.groups
- * @param {Function} action
+ * @param {Function} action Optional, can also be defined in options
  */
 export default function(options, action) {
   let $vm = getVM()
   if (action) options.action = action
 
+  $vm.$once('action', val => {
+    $vm.show = 0
+    options.action(val)
+  })
+
   Object.assign($vm, {
     defaultValue: null
   }, options, {
-    show: 1,
-    action(value) {
-      $vm.show = 0
-      options.action(value)
-    },
-    cancel() {
-      $vm.show = 0
-    }
+    show: 1
   })
 }

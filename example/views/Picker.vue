@@ -2,7 +2,7 @@
   <router-view>
     <app-header withback>picker</app-header>
     <div class="app-body demo-picker">
-      <picker :show="true" v-bind="single"></picker>
+      <picker :show="true" v-bind="single" @action="action" @cancel="cancel"></picker>
     </div>
   </router-view>
 </template>
@@ -45,30 +45,30 @@ export default {
                 return []
             }
           }
-        ],
-        action: value => {
-          picker({
-            groups: this.single.groups,
-            defaultValue: value,
-            action(value) {
-              toast.show({ message: value })
-            }
-          })
-        },
-        cancel() {
-          datePicker({
-            start: new Date(1950, 4, 9),
-            end: new Date(),
-            defaultDate: new Date(),
-            action(date) {
-              toast.show({ message: date.toLocaleDateString() })
-            }
-          })
-        }
+        ]
       }
     }
   },
   methods: {
+    action(value) {
+      picker({
+        groups: this.single.groups,
+        defaultValue: value,
+        action(value) {
+          toast.show({ message: value })
+        }
+      })
+    },
+    cancel(data) {
+      datePicker({
+        start: new Date(1950, 4, 9),
+        end: new Date(),
+        defaultDate: new Date(),
+        action(date) {
+          toast.show({ message: date.toLocaleDateString() })
+        }
+      })
+    }
   },
   components: {
     picker: Picker

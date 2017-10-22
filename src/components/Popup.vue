@@ -1,7 +1,7 @@
 <template>
   <div>
     <transition name="mask">
-      <div class="mask mask-dark" v-show="show" @click="maskClick"></div>
+      <div class="mask mask-dark" v-show="show" @click="hide"></div>
     </transition>
 
     <transition name="popup">
@@ -14,6 +14,11 @@
 
 <script>
 export default {
-  props: ['show', 'maskClick']
+  props: ['show'],
+  methods: {
+    hide() {
+      this.$emit('update:show', false)
+    }
+  }
 }
 </script>

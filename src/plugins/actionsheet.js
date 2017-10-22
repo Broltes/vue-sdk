@@ -7,6 +7,8 @@ let getVM = once(function() {
     el: document.createElement('div')
   })
 
+  $vm.$on('cancel', () => { $vm.show = 0 })
+
   document.body.appendChild($vm.$el)
 
   return $vm
@@ -19,11 +21,20 @@ let getVM = once(function() {
  * @param {Array} options.buttons The text list of simple action buttons
  * @param {Array} options.menus The menu list of complex action items with icons
  * @param {String} options.cancelText The text of cancel button, default to '取消', hidden if if defined as empty string
- * @param {Function} action
+ * @param {Function} action Optional, can also be defined in options
  */
 function actionsheet(options, action) {
   let $vm = getVM()
   if (action) options.action = action
+
+  /**
+   * @param {Number} index
+   * @param {Number} menuIndex
+   */
+  $vm.$once('action', (...args) => {
+    $vm.show = 0
+    options.action(...args)
+  })
 
   Object.assign($vm, {
     // reset to defaults for omitted params
@@ -32,15 +43,7 @@ function actionsheet(options, action) {
     buttons: null,
     menus: null
   }, options, {
-    show: 1,
-    action(index, menuIndex) {
-      $vm.show = 0
-
-      options.action.apply(this, arguments)
-    },
-    cancel() {
-      $vm.show = 0
-    }
+    show: 1
   })
 }
 

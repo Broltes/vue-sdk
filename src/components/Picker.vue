@@ -1,8 +1,8 @@
 <template>
-  <popup :show="show" :maskClick="maskClick">
+  <popup :show.sync="show">
     <div class="picker">
       <div class="picker-hd">
-        <a class="picker-action" @click="maskClick">取消</a>
+        <a class="picker-action" @click="cancel">取消</a>
         <a class="picker-action" @click="confirm">确定</a>
       </div>
       <div class="picker-bd">
@@ -37,16 +37,14 @@ function computeGroup(group, value) {
 
 export default {
   props: {
-    show: {},
+    show: Boolean,
     groups: {
       type: Array,
       default: function () {
         return [['']]// Pass a empty group for indicator precomputing
       }
     },
-    defaultValue: Array,
-    action: Function,
-    cancel: Function
+    defaultValue: Array
   },
   data() {
     return {
@@ -57,9 +55,8 @@ export default {
     }
   },
   methods: {
-    // cancel not ready when init plugin
-    maskClick() {
-      this.cancel()
+    cancel() {
+      this.$emit('cancel')
     },
     change(groupIndex, itemIndex) {
       let selectedItem = this.computedGroups[groupIndex][itemIndex]
@@ -100,7 +97,7 @@ export default {
     },
     confirm() {
       // return cleaned array
-      this.action(this.value.slice())
+      this.$emit('action', this.value.slice())
     },
     init() {
       this.value = this.defaultValue || []

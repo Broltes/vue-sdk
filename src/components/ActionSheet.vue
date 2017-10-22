@@ -1,5 +1,5 @@
 <template>
-  <popup :show="show" :maskClick="maskClick">
+  <popup :show.sync="show">
     <div class="actionsheet">
       <div v-if="message" class="actionsheet-message">{{message}}</div>
 
@@ -20,18 +20,20 @@
         </div>
       </div>
 
-      <div v-if="cancelText !== ''" @click="maskClick" class="actionsheet-cancel">{{cancelText || '取消'}}</div>
+      <div v-if="cancelText !== ''" @click="cancel" class="actionsheet-cancel">{{cancelText || '取消'}}</div>
     </div>
   </popup>
 </template>
 
 <script>
 export default {
-  props: ['show', 'message', 'buttons', 'menus', 'cancelText', 'action', 'cancel'],
+  props: ['show', 'message', 'buttons', 'menus', 'cancelText'],
   methods: {
-    // cancel not ready when init plugin
-    maskClick() {
-      this.cancel()
+    cancel() {
+      this.$emit('cancel')
+    },
+    action(...args) {
+      this.$emit('action', ...args)
     }
   }
 }
