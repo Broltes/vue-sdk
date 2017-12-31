@@ -5,3 +5,17 @@
   fill: currentColor;
   overflow: hidden;
 }
+
+.right-arrow {
+  &:after {
+    content: "";
+    display: inline-block;
+    height: .625em;
+    width: .625em;
+    margin-left: .5em;
+    color: $color-light;
+    border-width: 2px 2px 0 0;
+    border-style: solid;
+    transform: rotateZ(45deg);
+  }
+}

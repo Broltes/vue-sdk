@@ -98,18 +98,7 @@
       }
     }
 
-    // right arrow
-    &:after {
-      content: "";
-      display: inline-block;
-      height: .625rem;
-      width: .625rem;
-      margin-left: .5rem;
-      border-width: 2px 2px 0 0;
-      border-color: lighten($cell-ft-color, 30%);
-      border-style: solid;
-      transform: rotateZ(45deg);
-    }
+    @extend .right-arrow;
   }
 
   // footer
