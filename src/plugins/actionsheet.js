@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import ActionSheet from '../components/ActionSheet'
-import { once } from '../modules/utils'
+import { utils } from 'wdk'
 
-let getVM = once(function() {
+let getVM = utils.once(function() {
   let $vm = new (Vue.extend(ActionSheet))({
     el: document.createElement('div')
   })

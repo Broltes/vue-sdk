@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import animate from '../modules/animate'
-const { easeOutCubic, easeInOutCubic } = animate
+import { animation } from 'wdk'
+const { easeOutCubic, easeInOutCubic } = animation
 const overScrollDistance = 20
 
 function fixByBoundary(value, boundary) {
@@ -56,7 +56,7 @@ export default {
   methods: {
     touchstart(e) {
       e.preventDefault()
-      if (this.decelerating) this.decelerating = animate.stop(this.decelerating)
+      if (this.decelerating) this.decelerating = animation.stop(this.decelerating)
 
       this.startPointY = e.changedTouches[0].pageY
       this.startTime = e.timeStamp
@@ -126,7 +126,7 @@ export default {
 
     decelerat(decelerationVelocityY) {
       // Start animation
-      this.decelerating = animate.start(() => {
+      this.decelerating = animation.start(() => {
         let nextY = this.y + decelerationVelocityY
 
         // Stop the animation for translateBoundary
@@ -178,7 +178,7 @@ export default {
         if (percent >= 1) this.completed()
       }
 
-      animate.start(step, 200, this.decelerating ? easeOutCubic : easeInOutCubic)
+      animation.start(step, 200, this.decelerating ? easeOutCubic : easeInOutCubic)
     },
     completed() {
       if (this.indicatorHeight) {

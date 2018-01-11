@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Toast from '../components/Toast'
-import { once } from '../modules/utils'
+import { utils } from 'wdk'
 
 let tid
-let getVM = once(function() {
+let getVM = utils.once(function() {
   let $vm = new (Vue.extend(Toast))({
     el: document.createElement('div')
   })

@@ -1,8 +1,6 @@
 import './src/style/index.scss'
 import './src/assets/svg'
 
-import http from './src/modules/http'
-
 import toast from './src/plugins/toast'
 import dialog from './src/plugins/dialog'
 import actionsheet from './src/plugins/actionsheet'
@@ -33,8 +31,6 @@ export default {
 }
 
 export {
-  http,
-
   toast,
   dialog,
   actionsheet,
