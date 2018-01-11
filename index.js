@@ -1,5 +1,5 @@
-import './src/scss/index.scss'
-import './src/svg'
+import './src/style/index.scss'
+import './src/assets/svg'
 
 import http from './src/modules/http'
 

@@ -29,7 +29,7 @@ var config = {
     modules
   },
   sassLoaderOptions: {
-    data: '@import "~@/scss/variables";'
+    data: '@import "~@/style/variables";'
   },
   plugins: [
     new HtmlWebpackPlugin({

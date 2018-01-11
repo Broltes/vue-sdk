@@ -5,8 +5,8 @@ import appRouter from 'vue-app-router'
 import App from './App'
 import routes from './views/routes'
 
-import './scss/index.scss'
-import './svg'
+import './style/index.scss'
+import './assets/svg'
 
 Vue.use(sdk)
 Vue.use(appRouter, {
