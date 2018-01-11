@@ -11,9 +11,9 @@
 <script>
 import { actionsheet } from 'vue-sdk'
 import ActionSheet from 'vue-sdk/src/components/ActionSheet'
-import qq from '@/img/qq.png'
-import weibo from '@/img/weibo.png'
-import weixin from '@/img/weixin.png'
+import qq from '@/assets/img/qq.png'
+import weibo from '@/assets/img/weibo.png'
+import weixin from '@/assets/img/weixin.png'
 
 export default {
   data() {
